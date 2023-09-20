@@ -10,20 +10,74 @@
     "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
     "reactstrap": "^9.2.0",
+    "redux": "^4.2.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint . --fix"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "plugins": [
+      "simple-import-sort"
+    ],
+    "rules": {
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error"
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.js",
+          "**/*.ts",
+          "**/*.tsx"
+        ],
+        "rules": {
+          "simple-import-sort/imports": [
+            "error",
+            {
+              "groups": [
+                [
+                  "^react$",
+                  "^next",
+                  "^[a-z]"
+                ],
+                [
+                  "^@"
+                ],
+                [
+                  "^~"
+                ],
+                [
+                  "^\\.\\.(?!/?$)",
+                  "^\\.\\./?$"
+                ],
+                [
+                  "^\\./(?=.*/)(?!/?$)",
+                  "^\\.(?!/?$)",
+                  "^\\./?$"
+                ],
+                [
+                  "^.+\\.s?css$"
+                ],
+                [
+                  "^\\u0000"
+                ]
+              ]
+            }
+          ]
+        }
+      }
     ]
   },
   "browserslist": {
@@ -37,5 +91,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-simple-import-sort": "^10.0.0"
   }
 }
