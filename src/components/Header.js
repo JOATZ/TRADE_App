@@ -17,7 +17,6 @@ import {
 import tradeLogo from '../img/tradeLogoNoBg.png'
 
 const Header = () => {
-    const [menuOpen, setMenuOpen] = useState(false)
     const [dropdownOpen, setDropdownOpen] = useState(false)
 
     const toggleDropdown = () => {
@@ -31,9 +30,6 @@ const Header = () => {
                 <h1 className='mt-1'>Trade Record Adaptation Data Engine</h1>
             </NavbarBrand>
 
-            <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
-
-            <Collapse isOpen={menuOpen} navbar>
                 <Nav className='ml-auto' navbar>
                     <Dropdown
                         className='ms-auto'
@@ -49,7 +45,7 @@ const Header = () => {
                         </DropdownMenu>
                     </Dropdown>
                 </Nav>
-            </Collapse>
+
         </Navbar>
     )
 }
