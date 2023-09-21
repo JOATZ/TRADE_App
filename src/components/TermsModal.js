@@ -3,7 +3,7 @@ import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap'
 
 import removeAcceptedTermsBeforeUnload from '../utils/clearAcceptedTerms'
 
-const TermsModal = () => {
+const TermsModal = ({ acceptedTerms }) => {
     const [showTermsModal, setShowTermsModal] = useState(false)
     const [userClosedModal, setUserClosedModal] = useState(false)
 

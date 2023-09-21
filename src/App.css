@@ -52,9 +52,6 @@ body {
 
 /*Make dropdown icon no background*/
 .dropdown .btn, .dropdown .btn-secondary {
-  background-color: transparent;
-  border-color: transparent;
-  color: #282c34;
   font-size: 100%;
 }
 

@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { CgProfile } from 'react-icons/cg'
-import { NavLink } from 'react-router-dom'
 import {
-    Collapse,
     Dropdown,
     DropdownItem,
     DropdownMenu,
@@ -10,13 +8,11 @@ import {
     Nav,
     Navbar,
     NavbarBrand,
-    NavbarToggler,
-    NavItem,
 } from 'reactstrap'
 
 import tradeLogo from '../img/tradeLogoNoBg.png'
 
-const Header = () => {
+const Header = ({ acceptedTerms, loggedIn }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false)
 
     const toggleDropdown = () => {
@@ -29,14 +25,14 @@ const Header = () => {
                 <img src={tradeLogo} alt='T.R.A.D.E. Logo' />
                 <h1 className='mt-1'>Trade Record Adaptation Data Engine</h1>
             </NavbarBrand>
-
+            {acceptedTerms && (
                 <Nav className='ml-auto' navbar>
                     <Dropdown
                         className='ms-auto'
                         isOpen={dropdownOpen}
                         toggle={toggleDropdown}
                     >
-                        <DropdownToggle caret>
+                        <DropdownToggle color='transparent' dark='true' caret>
                             <CgProfile />
                         </DropdownToggle>
                         <DropdownMenu>
@@ -45,7 +41,7 @@ const Header = () => {
                         </DropdownMenu>
                     </Dropdown>
                 </Nav>
-
+            )}
         </Navbar>
     )
 }
