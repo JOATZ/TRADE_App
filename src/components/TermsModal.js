@@ -12,7 +12,7 @@ const TermsModal = () => {
         if (!acceptedTerms) {
             setShowTermsModal(true)
         }
-        removeAcceptedTermsBeforeUnload('acceptedTerms')
+        //removeAcceptedTermsBeforeUnload('acceptedTerms') //fix this with server side functions later
     }, [])
 
     const handleTermsModalClose = () => {

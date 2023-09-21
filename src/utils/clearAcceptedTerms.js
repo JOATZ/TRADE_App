@@ -1,14 +1,15 @@
-//clear acceptedTerms data value on refresh/close
 export const removeAcceptedTermsBeforeUnload = (itemKey) => {
-    const handleBeforeUnload = () => {
-        localStorage.removeItem(itemKey)
+    const handleVisibilityChange = () => {
+        if (document.hidden) {
+            localStorage.removeItem(itemKey);
+        }
     }
-    //listen for unload
-    window.addEventListener('beforeunload', handleBeforeUnload)
-    //remove the event listener when the component unmounts
+    // Listen for visibility change
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    // Remove the event listener when the component unmounts
     return () => {
-        window.removeEventListener('beforeunload', handleBeforeUnload)
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
     }
 }
 
-export default removeAcceptedTermsBeforeUnload
+export default removeAcceptedTermsBeforeUnload;
