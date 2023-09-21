@@ -20,9 +20,14 @@ body {
 /*NAVBAR*/
 .navbar-brand h1 {
   color: black;
+  font-size: 3vw;
 }
+
 .navbar-brand {
-  max-width: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin-right: 2rem;
 }
 
@@ -37,6 +42,17 @@ body {
   background-image: linear-gradient(to right, white, green);
   margin-bottom: 2rem;
   min-height: 8rem;
+}
+
+@media (max-width: 767px) { /* Stack Logo and h1 for sm vp's */
+  .navbar-brand {
+    flex-direction: column;
+  }
+
+  .navbar-brand h1 {
+    font-size: 5vw;
+    word-wrap: break-word;
+  }
 }
 /*Terms and Conditions Modal*/
 .terms-modal {
@@ -70,6 +86,8 @@ body {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+
 
 .App-header {
   background-color: #282c34;
