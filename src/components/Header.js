@@ -24,6 +24,8 @@ const Header = () => {
                 />
                 <h1 className='mt-1'>Trade Record Adaptation Data Engine</h1>
             </NavbarBrand>
+
+            <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
         </Navbar>
     )
 }
