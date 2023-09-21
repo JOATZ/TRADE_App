@@ -35,7 +35,11 @@ body {
   width: 100%;
   height: 100%;
   margin-right: 2rem;
-  max-width: 4rem;
+  max-width: 10rem;
+}
+
+.login-form-box {
+  border: 1px solid !important;
 }
 
 .navbar-dark {
@@ -44,22 +48,25 @@ body {
   min-height: 8rem;
 }
 
-@media (max-width: 767px) { /* Stack Logo and h1 for sm vp's */
+@media (max-width: 768px) { /* Stack Logo and h1 for sm vp's */
   .navbar-brand {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  .navbar-brand h1 {
-    font-size: 5vw;
-    word-wrap: break-word;
+  .terms-modal, .login-modal {
+    max-width: 90%; /* take 90% of screen width on small screens */
   }
+
 }
 /*Terms and Conditions Modal*/
-.terms-modal {
+.terms-modal, .login-modal {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  margin: auto !important;
 }
 
 .terms-modal-header{
@@ -81,13 +88,12 @@ body {
 }
 
 
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-
 
 .App-header {
   background-color: #282c34;
