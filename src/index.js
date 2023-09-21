@@ -8,7 +8,6 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 
 import './index.css'
-import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-social/bootstrap-social.css'
 import 'font-awesome/css/font-awesome.css'

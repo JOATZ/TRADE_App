@@ -18,6 +18,9 @@ body {
   margin-top: 2rem;
 }
 /*NAVBAR*/
+.navbar-brand h1 {
+  color: black;
+}
 .navbar-brand {
   max-width: 4rem;
   margin-right: 2rem;
@@ -31,8 +34,7 @@ body {
 }
 
 .navbar-dark {
-  background-color: #901cad;
-  background-image: linear-gradient(to right, #5637dd, #3046c5, #510e5a);
+  background-image: linear-gradient(to right, white, green);
   margin-bottom: 2rem;
   min-height: 8rem;
 }
