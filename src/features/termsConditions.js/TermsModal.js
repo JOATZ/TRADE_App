@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap'
 
-import removeAcceptedTermsBeforeUnload from '../utils/clearAcceptedTerms'
+import removeAcceptedTermsBeforeUnload from '../../utils/clearAcceptedTerms'
 
 const TermsModal = ({ acceptedTerms }) => {
     const [showTermsModal, setShowTermsModal] = useState(false)

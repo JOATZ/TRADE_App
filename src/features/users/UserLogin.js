@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
+import { useDispatch, useSelector } from 'react-redux'
 import {
     Button,
     Col,
@@ -8,29 +9,48 @@ import {
     Modal,
     ModalBody,
     ModalFooter,
-    ModalHeader,
+    ModalHeader
 } from 'reactstrap'
 
-const LoginModal = ({ loggedIn }) => {
-    const handleLoggedIn = () => {
-        localStorage.setItem('loggedIn', true)
+import { selectCurrentUser, setCurrentUser } from './userSlice'
+
+const UserLogin = () => {
+    const [loginModalOpen, setLoginModalOpen] = useState(false)
+
+    const currentUser = useSelector(selectCurrentUser)
+
+    const dispatch = useDispatch()
+
+    const handleLogin = (values) => {
+        const currentUser = {
+            id: Date.now(),
+            username: values.username,
+            password: values.password
+        }
+        dispatch(setCurrentUser(currentUser))
+        setLoginModalOpen(false)
     }
 
     return (
         <Modal
             className='login-modal'
-            isOpen={!loggedIn}
-            toggle={handleLoggedIn}
+            isOpen={loginModalOpen}
             backdrop='static'
         >
-            <ModalHeader className='login-modal-header'>User Login</ModalHeader>
+            <ModalHeader
+                toggle={() => setLoginModalOpen(false)}
+                className='login-modal-header'
+            >
+                User Login
+            </ModalHeader>
             <ModalBody>
                 <Formik
                     initialValues={{
                         userName: '',
-                        passWord: '',
+                        passWord: ''
                     }}
-                    //onSubmit={handleLogin  do later}
+                    onSubmit={handleLogin}
+                    //validate later---- validate={validateUserLogin}
                 >
                     <Form>
                         <FormGroup row>
@@ -63,7 +83,7 @@ const LoginModal = ({ loggedIn }) => {
                 </Formik>
             </ModalBody>
             <ModalFooter>
-                <Button className='primary' onClick={handleLoggedIn}>
+                <Button type='submit' className='primary'>
                     Login
                 </Button>
             </ModalFooter>
@@ -71,4 +91,4 @@ const LoginModal = ({ loggedIn }) => {
     )
 }
 
-export default LoginModal
+export default UserLogin
