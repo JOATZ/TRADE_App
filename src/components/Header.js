@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { CgProfile } from 'react-icons/cg'
-import { NavLink } from 'react-router-dom'
 import {
     Dropdown,
     DropdownItem,
@@ -9,13 +8,12 @@ import {
     Nav,
     Navbar,
     NavbarBrand
-    
 } from 'reactstrap'
 
 import UserLogin from '../features/users/UserLogin'
 import tradeLogo from '../img/tradeLogoNoBg.png'
 
-const Header = ({ acceptedTerms }) => {
+const Header = ({ acceptTerms }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false)
 
     const toggleDropdown = () => {

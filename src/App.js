@@ -1,8 +1,8 @@
 import { Provider } from 'react-redux'
-import { Route, Routes } from 'react-router-dom'
 
 import { store } from './app/store'
 import Header from './components/Header'
+import AcceptTerms from './features/termsConditions/AcceptedTerms'
 
 import './App.css'
 
@@ -10,6 +10,7 @@ function App() {
     return (
         <Provider store={store}>
             <div className='App'>
+                <AcceptTerms />
                 <Header />
             </div>
         </Provider>
