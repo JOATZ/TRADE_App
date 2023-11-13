@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { CgProfile } from 'react-icons/cg'
+import { useDispatch, useSelector } from 'react-redux'
 import {
     Dropdown,
     DropdownItem,
@@ -10,14 +11,25 @@ import {
     NavbarBrand
 } from 'reactstrap'
 
+import {
+    isTermsAccepted,
+    setCloseModal
+} from '../features/termsConditions/termsSlice'
 import UserLogin from '../features/users/UserLogin'
 import tradeLogo from '../img/tradeLogoNoBg.png'
 
-const Header = ({ acceptTerms }) => {
+const Header = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false)
+    const termsAccepted = useSelector(isTermsAccepted)
 
     const toggleDropdown = () => {
         setDropdownOpen((prevState) => !prevState)
+    }
+
+    const dispatch = useDispatch()
+
+    const handleReOpenModal = () => {
+        dispatch(setCloseModal(false))
     }
 
     return (
@@ -36,8 +48,17 @@ const Header = ({ acceptTerms }) => {
                         <CgProfile />
                     </DropdownToggle>
                     <DropdownMenu>
-                        <DropdownItem>Option 1</DropdownItem>
-                        <DropdownItem>Option 2</DropdownItem>
+                        {!termsAccepted && (
+                            <DropdownItem onClick={handleReOpenModal}>
+                                Accept Terms
+                            </DropdownItem>
+                        )}
+                        {termsAccepted && (
+                            <>
+                                <DropdownItem>User Login</DropdownItem>
+                                <DropdownItem>Option 2</DropdownItem>
+                            </>
+                        )}
                     </DropdownMenu>
                 </Dropdown>
             </Nav>
