@@ -11,10 +11,6 @@ const options = [
 ]
 
 const HomePage = () => {
-    const onOpen = () => {
-        console.log('Open file dialog')
-    }
-
     return (
         <Container>
             <Row>
@@ -22,7 +18,7 @@ const HomePage = () => {
             </Row>
             <Row>
                 <Col md={3}>
-                    <DragDropBox onOpen={onOpen} />
+                    <DragDropBox />
                     <Select
                         options={options}
                         placeholder='Choose Source File Type'

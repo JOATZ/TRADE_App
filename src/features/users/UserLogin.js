@@ -34,7 +34,6 @@ const UserLogin = () => {
         dispatch(setCurrentUser(currentUser))
         dispatch(setLoginModalOpen(false))
     }
-    console.log('rendering modal' + loginModalOpen)
     return (
         <Modal
             className='login-modal'
