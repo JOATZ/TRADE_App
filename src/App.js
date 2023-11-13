@@ -8,6 +8,7 @@ import {
     setTermsAccepted
 } from './features/termsConditions/termsSlice'
 import { setLoginModalOpen } from './features/users/userSlice'
+import HomePage from './pages/HomePage'
 
 import './App.css'
 
@@ -24,6 +25,7 @@ function App() {
         <div className='App'>
             <AcceptTerms />
             <Header />
+            <HomePage />
         </div>
     )
 }
