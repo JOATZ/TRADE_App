@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Header from './components/Header'
 import AcceptTerms from './features/termsConditions/AcceptTerms'
@@ -9,11 +9,13 @@ import {
 } from './features/termsConditions/termsSlice'
 import { setLoginModalOpen } from './features/users/userSlice'
 import HomePage from './pages/HomePage'
+import { selectDarkMode } from './utils/darkMode'
 
 import './App.css'
 
 function App() {
     const dispatch = useDispatch()
+    const darkMode = useSelector(selectDarkMode)
 
     useEffect(() => {
         dispatch(setTermsAccepted(false))

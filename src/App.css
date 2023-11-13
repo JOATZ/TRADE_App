@@ -1,9 +1,25 @@
+:root {
+  --color-background: white;
+  --color-text: black;
+  --color-navbar-dark-light: lightgrey;
+  --color-navbar-dark-dark: green;
+  --color-link: #61dafb;
+}
+
+body.dark-mode {
+  --color-background: rgb(50, 50, 70);
+  --color-text: grey;
+  --color-navbar-dark-light: rgb(104, 104, 142);
+  --color-navbar-dark-dark: rgb(50, 50, 70);
+  --color-link: #282c34;
+}
+
 .App {
   text-align: center;
 }
 
 body {
-  background-color: aquamarine;
+  background-color: var(--color-background);
 }
 
 .row-content {
@@ -17,7 +33,7 @@ body {
   padding: 20px 0;
   margin-top: 2rem;
 }
-/*NAVBAR*/
+
 .navbar-brand {
   display: flex;
   flex-direction: row;
@@ -27,13 +43,13 @@ body {
 }
 
 .navbar-dark {
-  background-image: linear-gradient(to right, lightgrey, green);
+  background-image: linear-gradient(to right, var(--color-navbar-dark-light), var(--color-navbar-dark-dark));
   margin-bottom: 2rem;
   min-height: 8rem;
 }
 
 .navbar-brand h1 {
-  color: black;
+  color: var(--color-text);
   font-size: max(4vw, 30px);
   text-align: center;
   flex-grow: 1;
@@ -41,9 +57,9 @@ body {
 }
 
 .dropzone {
-    border: 1px dashed gray;
-    padding: 10px;
-    text-align: center;
+  border: 1px dashed gray;
+  padding: 10px;
+  text-align: center;
 }
 
 .navbar-brand img {
@@ -56,7 +72,6 @@ body {
   font-size: 3vw;
 }
 
-/*Make dropdown icon no background*/
 .dropdown .btn, .dropdown .btn-secondary {
   font-size: 100%;
 }
@@ -65,7 +80,7 @@ body {
   border: 1px solid !important;
 }
 
-@media (max-width: 768px) { /* Stack Logo and h1 for sm vp's */
+@media (max-width: 768px) {
   .navbar-brand {
     flex-direction: column;
     align-items: center;
@@ -81,11 +96,10 @@ body {
   }
 
   .terms-modal, .login-modal {
-    max-width: 90%; /* take 90% of screen width on small screens */
+    max-width: 90%;
   }
-
 }
-/*Terms and Conditions Modal*/
+
 .terms-modal, .login-modal {
   display: flex;
   justify-content: center;
@@ -112,8 +126,6 @@ body {
   transform: translate(-50%, -50%);
 }
 
-
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -121,18 +133,18 @@ body {
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--color-background);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--color-text);
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--color-link);
 }
 
 @keyframes App-logo-spin {

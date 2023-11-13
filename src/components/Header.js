@@ -16,11 +16,9 @@ import {
     setCloseModal
 } from '../features/termsConditions/termsSlice'
 import UserLogin from '../features/users/UserLogin'
-import {
-    isLoginModalOpen,
-    setLoginModalOpen
-} from '../features/users/userSlice'
+import { setLoginModalOpen } from '../features/users/userSlice'
 import tradeLogo from '../img/tradeLogoNoBg.png'
+import DarkMode from '../utils/darkMode'
 
 const Header = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -71,7 +69,9 @@ const Header = () => {
                                     >
                                         User Login
                                     </DropdownItem>
-                                    <DropdownItem>Option 2</DropdownItem>
+                                    <DropdownItem>
+                                        <DarkMode />
+                                    </DropdownItem>
                                 </>
                             )}
                         </DropdownMenu>
