@@ -3,8 +3,12 @@ import { useDropzone } from 'react-dropzone'
 import { CgFileDocument } from 'react-icons/cg'
 import { Button, Input } from 'reactstrap'
 
-const DragDropBox = ({ props }) => {
-    const { acceptedFiles, getRootProps, getInputProps, open } = useDropzone()
+const DragDropBox = ({ onFileDrop }) => {
+    const { acceptedFiles, getRootProps, getInputProps, open } = useDropzone({
+        onDrop: (acceptedFiles) => {
+            onFileDrop(acceptedFiles[0])
+        }
+    })
 
     const files = acceptedFiles.map((file) => (
         <li key={file.path}>
