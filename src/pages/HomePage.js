@@ -51,13 +51,14 @@ const HomePage = () => {
 
     return (
         <Container fluid>
-            <Row>
-                <Col>Top row content</Col>
-            </Row>
-            <Row>
+            <Row className='page-row'>
                 <Col md={3} className='data-list-container'>
-                    <DragDropBox onFileDrop={handleFileDrop} />
+                    <DragDropBox
+                        className='drag-drop-box'
+                        onFileDrop={handleFileDrop}
+                    />
                     <Select
+                        className='file-select'
                         options={options}
                         placeholder='Choose Source File Type'
                         onChange={handleOptionChange}
@@ -66,7 +67,9 @@ const HomePage = () => {
                         <DataList setSelectedData={setSelectedData} />
                     </Row>
                 </Col>
-                <Col md={9} className='preview-container'>{selectedData?JSON.stringify(selectedData,null,2):''}</Col>
+                <Col md={9} className='preview-container'>
+                    {selectedData ? JSON.stringify(selectedData, null, 2) : ''}
+                </Col>
             </Row>
         </Container>
     )
