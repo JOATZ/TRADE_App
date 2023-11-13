@@ -18,12 +18,17 @@ const AcceptTerms = () => {
 
     const handleAcceptTerms = () => {
         dispatch(setTermsAccepted(true))
+        dispatch(setCloseModal(true))
     }
 
     const handleCloseModal = () => {
         dispatch(setCloseModal(true))
+        dispatch(setTermsAccepted(false))
     }
 
+    if (modalClosed && !termsAccepted) {
+        return <TermsMessage />
+    }
     return (
         <>
             <Modal
@@ -34,7 +39,7 @@ const AcceptTerms = () => {
             >
                 <ModalHeader
                     className='terms-modal-header'
-                    toggle={handleAcceptTerms}
+                    toggle={handleCloseModal}
                 >
                     Terms and Conditions
                 </ModalHeader>
@@ -62,7 +67,6 @@ const AcceptTerms = () => {
                     </Button>
                 </ModalFooter>
             </Modal>
-            {!termsAccepted && <TermsMessage />}
         </>
     )
 }
