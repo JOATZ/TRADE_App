@@ -16,6 +16,9 @@ function mt4ToJSON(file) {
             let lastTicketRowFound = false
             let data = []
             let headers = []
+            let dateTimeNow = new Date()
+            let dateString = dateTimeNow.toLocaleDateString() // e.g. "12/31/2021"
+            let timeString = dateTimeNow.toLocaleTimeString() // e.g. "12:59:59 PM"
 
             var tds = doc.getElementsByTagName('td')
             for (let td of tds) {
@@ -65,7 +68,7 @@ function mt4ToJSON(file) {
             }
 
             // Convert the data to a JSON object
-            var json = data
+            var transactions = data
                 .map((row, i) => {
                     if (i === 0) {
                         headers = row.map((header) =>
@@ -84,6 +87,14 @@ function mt4ToJSON(file) {
                     }
                 })
                 .filter((item) => item !== null)
+
+            // Create the final JSON object
+            var json = {
+                date: dateString,
+                time: timeString,
+                numTrades: transactions.length,
+                transactions: transactions
+            }
 
             // Resolve the promise with the JSON object
             resolve(json)

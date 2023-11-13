@@ -147,6 +147,53 @@ body {
   color: var(--color-link);
 }
 
+.data-list-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px; /* Adjust as needed */
+  border: solid black 1px;
+  border-radius: 15px;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px; /* Adjust as needed */
+  border: solid black 1px;
+  border-radius: 15px;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+
+.pill-remove-button .btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parent-pill-row {
+  outline: 1px black solid;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pill-col{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -154,4 +201,20 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+/*temp to see paddings*/
+.container-fluid {
+  background-color: lightcoral;
+}
+
+.row {
+  margin: 5px;
+  background-color: purple;
+}
+
+.col {
+  margin:5px;
+  padding: 10px;
+  background-color: lightsalmon;
 }
