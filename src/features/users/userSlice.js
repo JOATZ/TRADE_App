@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    currentUser: null
+    currentUser: null,
+    loginModalOpen: false
 }
 
 const userSlice = createSlice({
@@ -9,15 +10,17 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setCurrentUser: (state, action) => {
-            return { ...state, currentUser: action.payload }
+            state.currentUser = action.payload
+        },
+        setLoginModalOpen: (state, action) => {
+            state.loginModalOpen = action.payload
         }
     }
 })
 
+export const { setCurrentUser, setLoginModalOpen } = userSlice.actions
+
+export const selectCurrentUser = (state) => state.user.currentUser
+export const isLoginModalOpen = (state) => state.user.loginModalOpen
+
 export const userReducer = userSlice.reducer
-
-export const { setCurrentUser } = userSlice.actions
-
-export const selectCurrentUser = (state) => {
-    return state.user.currentUser
-}

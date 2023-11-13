@@ -30,44 +30,41 @@ const AcceptTerms = () => {
         return <TermsMessage />
     }
     return (
-        <>
-            <Modal
-                className='terms-modal'
-                isOpen={!termsAccepted}
+        <Modal
+            className='terms-modal'
+            isOpen={!termsAccepted}
+            backdrop='static'
+        >
+            <ModalHeader
+                className='terms-modal-header'
                 toggle={handleCloseModal}
-                backdrop='static'
             >
-                <ModalHeader
-                    className='terms-modal-header'
-                    toggle={handleCloseModal}
-                >
-                    Terms and Conditions
-                </ModalHeader>
-                <ModalBody>
-                    By using this site, you agree to the following Terms and
-                    Conditions:
-                    <ol>
-                        <li>
-                            You are responsible for any data you upload to this
-                            site.
-                        </li>
-                        <li>
-                            We are not responsible for any data uploaded to this
-                            site.
-                        </li>
-                        <li>
-                            You agree not to upload any illegal or harmful data.
-                            Please use this site responsibly.
-                        </li>
-                    </ol>
-                </ModalBody>
-                <ModalFooter>
-                    <Button color='primary' onClick={handleAcceptTerms}>
-                        I Accept
-                    </Button>
-                </ModalFooter>
-            </Modal>
-        </>
+                Terms and Conditions
+            </ModalHeader>
+            <ModalBody>
+                By using this site, you agree to the following Terms and
+                Conditions:
+                <ol>
+                    <li>
+                        You are responsible for any data you upload to this
+                        site.
+                    </li>
+                    <li>
+                        We are not responsible for any data uploaded to this
+                        site.
+                    </li>
+                    <li>
+                        You agree not to upload any illegal or harmful data.
+                        Please use this site responsibly.
+                    </li>
+                </ol>
+            </ModalBody>
+            <ModalFooter>
+                <Button color='primary' onClick={handleAcceptTerms}>
+                    I Accept
+                </Button>
+            </ModalFooter>
+        </Modal>
     )
 }
 

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -12,11 +12,15 @@ import {
     ModalHeader
 } from 'reactstrap'
 
-import { selectCurrentUser, setCurrentUser } from './userSlice'
+import {
+    isLoginModalOpen,
+    selectCurrentUser,
+    setCurrentUser,
+    setLoginModalOpen
+} from './userSlice'
 
 const UserLogin = () => {
-    const [loginModalOpen, setLoginModalOpen] = useState(false)
-
+    const loginModalOpen = useSelector(isLoginModalOpen)
     const currentUser = useSelector(selectCurrentUser)
 
     const dispatch = useDispatch()
@@ -28,31 +32,32 @@ const UserLogin = () => {
             password: values.password
         }
         dispatch(setCurrentUser(currentUser))
-        setLoginModalOpen(false)
+        dispatch(setLoginModalOpen(false))
     }
-
+    console.log('rendering modal' + loginModalOpen)
     return (
         <Modal
             className='login-modal'
             isOpen={loginModalOpen}
             backdrop='static'
         >
+            {console.log('Modal render2' + loginModalOpen)}
             <ModalHeader
-                toggle={() => setLoginModalOpen(false)}
                 className='login-modal-header'
+                toggle={() => dispatch(setLoginModalOpen(false))}
             >
                 User Login
             </ModalHeader>
-            <ModalBody>
-                <Formik
-                    initialValues={{
-                        userName: '',
-                        passWord: ''
-                    }}
-                    onSubmit={handleLogin}
-                    //validate later---- validate={validateUserLogin}
-                >
-                    <Form>
+            <Formik
+                initialValues={{
+                    userName: '',
+                    passWord: ''
+                }}
+                onSubmit={handleLogin}
+                //validate later---- validate={validateUserLogin}
+            >
+                <Form>
+                    <ModalBody>
                         <FormGroup row>
                             <Col>
                                 <Label htmlFor='userName'>
@@ -79,14 +84,14 @@ const UserLogin = () => {
                                 />
                             </Col>
                         </FormGroup>
-                    </Form>
-                </Formik>
-            </ModalBody>
-            <ModalFooter>
-                <Button type='submit' className='primary'>
-                    Login
-                </Button>
-            </ModalFooter>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button type='submit' className='primary'>
+                            Login
+                        </Button>
+                    </ModalFooter>
+                </Form>
+            </Formik>
         </Modal>
     )
 }
