@@ -41,7 +41,6 @@ const UserLogin = () => {
             isOpen={loginModalOpen}
             backdrop='static'
         >
-            {console.log('Modal render2' + loginModalOpen)}
             <ModalHeader
                 className='login-modal-header'
                 toggle={() => dispatch(setLoginModalOpen(false))}
