@@ -16,11 +16,16 @@ const HomePage = () => {
     const [selectedOption, setSelectedOption] = useState(null)
     const [droppedFile, setDroppedFile] = useState(null)
     const [previewContent, setPreviewContent] = useState('')
-
+    //will execute parser when both file is uploaded and parser type is selected
+    // regardless of order
     const handleFileDrop = (file) => {
         setDroppedFile(file)
         if (selectedOption && selectedOption.value === 'mt4') {
-            mt4ToJSON(file).then(setPreviewContent).catch(console.error)
+            mt4ToJSON(file)//stringify just for preview testing not needed in final
+                .then((json) =>
+                    setPreviewContent(JSON.stringify(json, null, 2))
+                )
+                .catch(console.error)
         }
     }
 
