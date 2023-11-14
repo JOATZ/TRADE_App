@@ -53,7 +53,7 @@ const Header = () => {
                         isOpen={dropdownOpen}
                         toggle={toggleDropdown}
                     >
-                        <DropdownToggle color='transparent' dark='true' caret>
+                        <DropdownToggle color='transparent' dark='true'>
                             <CgProfile />
                         </DropdownToggle>
                         <DropdownMenu>

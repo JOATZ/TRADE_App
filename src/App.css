@@ -32,7 +32,7 @@ body {
 }
 
 .site-footer {
-  background-image: linear-gradient(#cec8ff, white);
+  background-image: linear-gradient(var(--color-navbar-dark-light), var(--color-navbar-dark-dark));
   padding: 20px 0;
   margin-top: 2rem;
 }
@@ -60,6 +60,12 @@ body {
   flex-grow: 1;
   white-space: normal;
 }
+.dropdown{
+  color: var(--color-text);
+}
+.dropdown svg {
+  color: var(--color-text);
+}
 /*_______________DROPZONE____________________*/
 .dropzone {
   border: 0px solid black;
@@ -75,6 +81,10 @@ body {
   width: 100%;
   height:15vh;
   background-color: var(--color-background);
+}
+
+.drag-drop-box, .file-select {
+  padding: 5px;
 }
 
 .navbar-brand img {
@@ -214,6 +224,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 5px;
+  background-color: var(--color-accent);
 }
 
 .pill-col{
@@ -227,7 +238,7 @@ body {
   display:flex;
   justify-content: center;
 }
-
+/*______PREVIEW TABLE HEADERS____________*/
 .sticky-header th {
   position: sticky;
   top: 0;
@@ -243,10 +254,6 @@ body {
   to {
     transform: rotate(360deg);
   }
-}
-
-.drag-drop-box, .file-select {
-  padding: 5px;
 }
 
 
