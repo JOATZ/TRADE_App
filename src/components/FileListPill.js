@@ -17,26 +17,32 @@ const FileListPill = ({ data, setSelectedData }) => {
 
     return (
         <Row onClick={handleClick} className='parent-pill-row'>
-            <Col md={10} className='pill-col'>
+            <Col xs={10} className='pill-col'>
                 <Row className='pill-row'>
-                    <Col className='pill-col'>{data.date}</Col>
-                    <Col className='pill-col'>{data.time}</Col>
+                    {data.date}
+                    {'     '}
+                    {data.time}
                 </Row>
                 <Row className='pill-row'>
                     Number of Transactions: {data.numTrades}
                 </Row>
             </Col>
-            <Col md={2} className='pill-col'>
+            <Col xs={2} className='pill-col'>
                 <Button
-                    className='pill-remove-button'
+                    color='danger'
                     onClick={handleRemove}
                     style={{
-                        border: 'none',
-                        background: 'red',
+                        width: '30px',
+                        height: '30px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderRadius: '50%',
+                        color: 'white',
                         fontSize: '1rem'
                     }}
                 >
-                    &times;
+                    X
                 </Button>
             </Col>
         </Row>

@@ -24,7 +24,7 @@ const JsonToTable = ({ data }) => {
 
     return (
         <table {...getTableProps()}>
-            <thead>
+            <thead className='sticky-header'>
                 {headerGroups.map((headerGroup) => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                         {headerGroup.headers.map((column) => (
