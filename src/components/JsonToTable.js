@@ -1,38 +1,66 @@
-import React from 'react'
+import React, { useMemo } from 'react'
+import { useSortBy, useTable } from 'react-table'
 
 const JsonToTable = ({ data }) => {
-    if (!data || !data.transactions || !data.transactions.length) return null
+    const transactions = useMemo(
+        () => (data && data.transactions ? data.transactions : []),
+        [data]
+    )
+    const headers = useMemo(
+        () =>
+            transactions.length > 0
+                ? Object.keys(transactions[0]).map((header) => ({
+                      Header: header,
+                      accessor: header
+                  }))
+                : [],
+        [transactions]
+    )
 
-    const headers = Object.keys(data.transactions[0])
-    const transactions = data.transactions
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+        useTable({ columns: headers, data: transactions }, useSortBy)
+
+    if (transactions.length === 0) return null
 
     return (
-        <table>
+        <table {...getTableProps()}>
             <thead>
-                <tr>
-                    <th colSpan={headers.length}>
-                        {data.date} {data.time} Number of transactions:{' '}
-                        {data.transactions.length}
-                    </th>
-                </tr>
-                <tr>
-                    {headers.map((header, index) => (
-                        <th key={index}>{header}</th>
-                    ))}
-                </tr>
-            </thead>
-            <tbody>
-                {transactions.map((transaction, rowIndex) => (
-                    <tr key={rowIndex}>
-                        {headers.map((header, index) => (
-                            <td key={index}>
-                                {typeof transaction[header] === 'object'
-                                    ? JSON.stringify(transaction[header])
-                                    : transaction[header]}
-                            </td>
+                {headerGroups.map((headerGroup) => (
+                    <tr {...headerGroup.getHeaderGroupProps()}>
+                        {headerGroup.headers.map((column) => (
+                            <th
+                                {...column.getHeaderProps(
+                                    column.getSortByToggleProps()
+                                )}
+                            >
+                                {column.render('Header')}
+                                <span>
+                                    {column.isSorted
+                                        ? column.isSortedDesc
+                                            ? ' 🔽'
+                                            : ' 🔼'
+                                        : '↕'}
+                                </span>
+                            </th>
                         ))}
                     </tr>
                 ))}
+            </thead>
+            <tbody {...getTableBodyProps()}>
+                {rows.map((row) => {
+                    prepareRow(row)
+                    return (
+                        <tr {...row.getRowProps()}>
+                            {row.cells.map((cell) => (
+                                <td {...cell.getCellProps()}>
+                                    {typeof cell.value === 'object'
+                                        ? JSON.stringify(cell.value)
+                                        : cell.value}
+                                </td>
+                            ))}
+                        </tr>
+                    )
+                })}
             </tbody>
         </table>
     )
