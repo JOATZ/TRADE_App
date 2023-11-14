@@ -10,6 +10,12 @@ const JsonToTable = ({ data }) => {
         <table>
             <thead>
                 <tr>
+                    <th colSpan={headers.length}>
+                        {data.date} {data.time} Number of transactions:{' '}
+                        {data.transactions.length}
+                    </th>
+                </tr>
+                <tr>
                     {headers.map((header, index) => (
                         <th key={index}>{header}</th>
                     ))}
