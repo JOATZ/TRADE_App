@@ -66,6 +66,8 @@ export const deleteData = createAsyncThunk(
 const initialState = {
     dataList: [],
     isLoading: true,
+    isPosting: false,
+    isDeleting: false,
     errMsg: ''
 }
 
@@ -86,17 +88,30 @@ const dataListSlice = createSlice({
             state.isLoading = false
             state.errMsg = action.error ? action.error.message : 'Fetch failed'
         },
+        [postDataList.pending]: (state) => {
+            state.isPosting = true
+        },
+        [postDataList.fulfilled]: (state, action) => {
+            state.isPosting = false
+            state.dataList = mapDataListURL(action.payload)
+        },
         [postDataList.rejected]: (state, action) => {
+            state.isPosting = false
             alert(
                 'Your data could not be posted\nError: ' +
                     (action.error ? action.error.message : 'Fetch failed')
             )
         },
-        [postDataList.fulfilled]: (state, action) => {
-            state.dataList = mapDataListURL(action.payload)
+        [deleteData.pending]: (state) => {
+            state.isDeleting = true
         },
         [deleteData.fulfilled]: (state, action) => {
+            state.isDeleting = false
             state.dataList = mapDataListURL(action.payload)
+        },
+        [deleteData.rejected]: (state, action) => {
+            state.isDeleting = false
+            state.errMsg = action.error ? action.error.message : 'Delete failed'
         }
     }
 })

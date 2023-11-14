@@ -4,6 +4,7 @@ import { Col } from 'reactstrap'
 import Error from '../../components/Error'
 import FileListPill from '../../components/FileListPill'
 import Loading from '../../components/Loading'
+import Working from '../../components/Working'
 
 import { getData } from './dataListSlice'
 
@@ -12,6 +13,9 @@ const DataList = ({ setSelectedData }) => {
     // get dataList from Redux store
     const isLoading = useSelector((state) => state.data.isLoading)
     const errMsg = useSelector((state) => state.data.errMsg)
+    const isWorking = useSelector(
+        (state) => state.data.isPosting || state.data.isDeleting
+    )
 
     if (isLoading) {
         return (
@@ -19,6 +23,10 @@ const DataList = ({ setSelectedData }) => {
                 <Loading />
             </Col>
         )
+    }
+
+    if (isWorking) {
+        return <Col>{isWorking ? <Working /> : ''}</Col>
     }
 
     if (errMsg) {
