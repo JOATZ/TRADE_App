@@ -1,13 +1,14 @@
 // src/pages/HomePage.js
 import React, { useEffect, useState } from 'react'
-//for pushing data to array
 import { useDispatch, useSelector } from 'react-redux'
 import Select from 'react-select'
-import { Button, Col, Container, Row } from 'reactstrap'
+import { Col, Container, Row } from 'reactstrap'
 
 //for file drop
 import DragDropBox from '../components/DragDropBox'
 import Error from '../components/Error'
+//for pushing data to array
+import JsonToTable from '../components/JsonToTable'
 import Loading from '../components/Loading'
 import DataList from '../features/dataList/DataList'
 //for pushing data to array
@@ -81,7 +82,7 @@ const HomePage = () => {
                     </Row>
                 </Col>
                 <Col md={9} className='preview-container'>
-                    {selectedData ? JSON.stringify(selectedData, null, 2) : ''}
+                    {selectedData ? <JsonToTable data={selectedData} /> : ''}
                 </Col>
             </Row>
         </Container>
