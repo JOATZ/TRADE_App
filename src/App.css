@@ -1,14 +1,16 @@
 /*______________light mode colors______________________*/
 :root {
-  --color-background: grey;
+  --color-background: lightgrey;
+  --color-accent:grey;
   --color-text: black;
-  --color-navbar-dark-light: lightgrey;
+  --color-navbar-dark-light: grey;
   --color-navbar-dark-dark: green;
   --color-link: #61dafb;
 }
 /*______________dark mode colors______________________*/
 body.dark-mode {
-  --color-background: rgb(50, 50, 70);
+  --color-background:black;
+  --color-accent: rgb(50, 50, 70);
   --color-text: grey;
   --color-navbar-dark-light: rgb(104, 104, 142);
   --color-navbar-dark-dark: rgb(50, 50, 70);
@@ -58,11 +60,21 @@ body {
   flex-grow: 1;
   white-space: normal;
 }
-
+/*_______________DROPZONE____________________*/
 .dropzone {
-  border: 1px dashed gray;
+  border: 0px solid black;
+  border-radius: 15px;
+  background-color: var(--color-background);
   padding: 10px;
   text-align: center;
+}
+
+.drag-drop-container{
+  border: solid black 1px;
+  border-radius: 15px;
+  width: 100%;
+  height:15vh;
+  background-color: var(--color-background);
 }
 
 .navbar-brand img {
@@ -151,7 +163,10 @@ body {
 }
 .page-row{
   padding: 5px;
+  background-color: var(--color-accent);
+  color:var(--color-text);
 }
+
 .data-list-container {
   display: flex;
   flex-direction: column;
@@ -174,16 +189,19 @@ body {
   width: 100%;
   height:85vh;
   overflow-y: auto;
+  background-color: var(--color-background);
 }
 
 .preview-container {
   display: flex;
   flex-direction: column;
-  border: solid black 5px;
+  border: solid black 1px;
   border-radius: 15px;
   width: 100%;
   height: 85vh;
   overflow-y: auto;
+  background-color: var(--color-background);
+  padding-top: 5px;
 }
 
 .parent-pill-row {
@@ -213,8 +231,9 @@ body {
 .sticky-header th {
   position: sticky;
   top: 0;
-  background: grey; /* Replace with the desired background color */
+  background: var(--color-accent);
   z-index: 10;
+  border-radius: 5px;
 }
 
 @keyframes App-logo-spin {
