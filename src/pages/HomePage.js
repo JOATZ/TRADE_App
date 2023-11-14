@@ -1,15 +1,10 @@
-// src/pages/HomePage.js
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Select from 'react-select'
+import Select from 'react-select' //file type selector
 import { Col, Container, Row } from 'reactstrap'
 
-//for file drop
-import DragDropBox from '../components/DragDropBox'
-import Error from '../components/Error'
-//for pushing data to array
+import DragDropBox from '../components/DragDropBox' //for file drop
 import JsonToTable from '../components/JsonToTable'
-import Loading from '../components/Loading'
 import DataList from '../features/dataList/DataList'
 //for pushing data to array
 import {

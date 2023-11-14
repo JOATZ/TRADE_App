@@ -14,7 +14,7 @@ const FileListPill = ({ data, setSelectedData }) => {
     }
 
     const handleRemove = (event) => {
-        event.stopPropagation() // Prevent triggering handleClick when removing
+        event.stopPropagation() // Prevent triggering handleClick when clicking handleRemove
         dispatch(deleteData(data.id))
         dispatch(removeDataFromArray(data.id))
     }
