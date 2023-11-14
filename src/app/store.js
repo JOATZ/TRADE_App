@@ -1,19 +1,33 @@
 import logger from 'redux-logger'
+import { persistReducer, persistStore } from 'redux-persist'
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import { dataReducer } from '../features/dataList/dataListSlice'
 import { termsReducer } from '../features/termsConditions/termsSlice'
 import { userReducer } from '../features/users/userSlice'
 import { darkModeSlice } from '../utils/darkMode'
 
+const rootReducer = combineReducers({
+    user: userReducer,
+    terms: termsReducer,
+    mode: darkModeSlice.reducer,
+    data: dataReducer
+})
+
+const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: ['data', 'terms']
+}
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
 export const store = configureStore({
-    reducer: {
-        user: userReducer,
-        terms: termsReducer,
-        mode: darkModeSlice.reducer,
-        data: dataReducer
-    },
+    reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat([logger])
 })
+
+export const persistor = persistStore(store)

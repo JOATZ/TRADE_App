@@ -18,7 +18,6 @@ function App() {
     const darkMode = useSelector(selectDarkMode)
 
     useEffect(() => {
-        dispatch(setTermsAccepted(false))
         dispatch(setCloseModal(false))
         dispatch(setLoginModalOpen(false))
     }, [dispatch])
