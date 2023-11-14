@@ -1,7 +1,10 @@
 import { useDispatch } from 'react-redux'
 import { Button, Col, Row } from 'reactstrap'
 
-import { removeDataFromArray } from '../features/dataList/dataListSlice'
+import {
+    deleteData,
+    removeDataFromArray
+} from '../features/dataList/dataListSlice'
 
 const FileListPill = ({ data, index, setSelectedData }) => {
     const dispatch = useDispatch()
@@ -12,7 +15,8 @@ const FileListPill = ({ data, index, setSelectedData }) => {
 
     const handleRemove = (event) => {
         event.stopPropagation() // Prevent triggering handleClick when removing
-        dispatch(removeDataFromArray(index))
+        dispatch(deleteData(data.id))
+        dispatch(removeDataFromArray(data.id))
     }
 
     return (

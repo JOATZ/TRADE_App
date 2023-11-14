@@ -1,15 +1,22 @@
 // src/pages/HomePage.js
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 //for pushing data to array
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Select from 'react-select'
-import { Col, Container, Row } from 'reactstrap'
+import { Button, Col, Container, Row } from 'reactstrap'
 
 //for file drop
 import DragDropBox from '../components/DragDropBox'
+import Error from '../components/Error'
+import Loading from '../components/Loading'
 import DataList from '../features/dataList/DataList'
 //for pushing data to array
-import { logDataToArray } from '../features/dataList/dataListSlice'
+import {
+    fetchDataList,
+    getData,
+    logDataToArray,
+    postDataList
+} from '../features/dataList/dataListSlice'
 import mt4ToJSON from '../utils/mt4ToJSON'
 
 const options = [
@@ -24,15 +31,21 @@ const HomePage = () => {
     const [droppedFile, setDroppedFile] = useState(null)
     const [selectedData, setSelectedData] = useState(null)
     const [previewContent, setPreviewContent] = useState('')
+    const dataList = useSelector(getData)
+
+    useEffect(() => {
+        dispatch(fetchDataList())
+    }, [dispatch])
     //will execute parser when both file is uploaded and parser type is selected
     // regardless of order
     const handleFileDrop = (file) => {
         setDroppedFile(file)
         if (selectedOption && selectedOption.value === 'mt4') {
-            mt4ToJSON(file) //stringify just for preview testing not needed in final
+            mt4ToJSON(file)
                 .then((json) => {
                     setPreviewContent(JSON.stringify(json, null, 2))
                     dispatch(logDataToArray(json))
+                    dispatch(postDataList(dataList.concat(json))) // Add the new data to dataList and send it to the server
                 })
                 .catch(console.error)
         }

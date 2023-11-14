@@ -1,3 +1,4 @@
+/*______________light mode colors______________________*/
 :root {
   --color-background: grey;
   --color-text: black;
@@ -5,7 +6,7 @@
   --color-navbar-dark-dark: green;
   --color-link: #61dafb;
 }
-
+/*______________dark mode colors______________________*/
 body.dark-mode {
   --color-background: rgb(50, 50, 70);
   --color-text: grey;
