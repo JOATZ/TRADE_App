@@ -164,6 +164,17 @@ body {
   height:85vh;
 }
 
+.data-pill-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  border: solid black 1px;
+  border-radius: 15px;
+  width: 100%;
+  height:85vh;
+}
+
 .preview-container {
   display: flex;
   flex-direction: column;
@@ -183,6 +194,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 5px;
 }
 
 .pill-col{

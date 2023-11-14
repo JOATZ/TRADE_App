@@ -72,7 +72,7 @@ const HomePage = () => {
                         placeholder='Choose Source File Type'
                         onChange={handleOptionChange}
                     />
-                    <Row className='data-list-container'>
+                    <Row className='data-pill-container'>
                         <DataList />
                     </Row>
                 </Col>
