@@ -31,7 +31,6 @@ const HomePage = () => {
     const [selectedOption, setSelectedOption] = useState(null)
     const [droppedFile, setDroppedFile] = useState(null)
     const [selectedData, setSelectedData] = useState(null)
-    const [previewContent, setPreviewContent] = useState('')
     const dataList = useSelector(getData)
 
     useEffect(() => {
@@ -44,9 +43,9 @@ const HomePage = () => {
         if (selectedOption && selectedOption.value === 'mt4') {
             mt4ToJSON(file)
                 .then((json) => {
-                    setPreviewContent(JSON.stringify(json, null, 2))
-                    dispatch(logDataToArray(json))
-                    dispatch(postDataList(dataList.concat(json))) // Add the new data to dataList and send it to the server
+                    dispatch(logDataToArray(json)) //add data to array
+                    dispatch(postDataList(dataList.concat(json))) // add data to dataList in server db
+                    setSelectedData(json) //display latest upload in preview
                 })
                 .catch(console.error)
         }
@@ -56,9 +55,11 @@ const HomePage = () => {
         setSelectedOption(option)
         if (option.value === 'mt4' && droppedFile) {
             mt4ToJSON(droppedFile)
-                .then((json) =>
-                    setPreviewContent(JSON.stringify(json, null, 2))
-                )
+                .then((json) => {
+                    dispatch(logDataToArray(json)) //add data to array
+                    dispatch(postDataList(dataList.concat(json))) //add data to dataList in server db
+                    setSelectedData(json) //display latest upload
+                })
                 .catch(console.error)
         }
     }

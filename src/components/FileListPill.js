@@ -6,7 +6,7 @@ import {
     removeDataFromArray
 } from '../features/dataList/dataListSlice'
 
-const FileListPill = ({ data, index, setSelectedData }) => {
+const FileListPill = ({ data, setSelectedData }) => {
     const dispatch = useDispatch()
 
     const handleClick = () => {
