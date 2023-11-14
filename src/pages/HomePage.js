@@ -10,7 +10,6 @@ import DataList from '../features/dataList/DataList'
 import {
     fetchDataList,
     getData,
-    logDataToArray,
     postDataList
 } from '../features/dataList/dataListSlice'
 import mt4ToJSON from '../utils/mt4ToJSON'
@@ -38,7 +37,6 @@ const HomePage = () => {
         if (selectedOption && selectedOption.value === 'mt4') {
             mt4ToJSON(file)
                 .then((json) => {
-                    dispatch(logDataToArray(json)) //add data to array
                     dispatch(postDataList(dataList.concat(json))) // add data to dataList in server db
                     setSelectedData(json) //display latest upload in preview
                 })
@@ -51,7 +49,6 @@ const HomePage = () => {
         if (option.value === 'mt4' && droppedFile) {
             mt4ToJSON(droppedFile)
                 .then((json) => {
-                    dispatch(logDataToArray(json)) //add data to array
                     dispatch(postDataList(dataList.concat(json))) //add data to dataList in server db
                     setSelectedData(json) //display latest upload
                 })
