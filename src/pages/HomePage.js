@@ -73,7 +73,9 @@ const HomePage = () => {
                         onChange={handleOptionChange}
                     />
                     <Row className='data-pill-container'>
-                        <DataList />
+                        <Col className='scrollable-container'>
+                            <DataList />
+                        </Col>
                     </Row>
                 </Col>
                 <Col md={9} className='preview-container'>
