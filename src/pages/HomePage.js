@@ -10,7 +10,9 @@ import DataList from '../features/dataList/DataList'
 import {
     fetchDataList,
     getData,
-    postDataList
+    getSelectedData,
+    postDataList,
+    setSelectedData
 } from '../features/dataList/dataListSlice'
 import mt4ToJSON from '../utils/mt4ToJSON'
 
@@ -24,8 +26,8 @@ const HomePage = () => {
     const dispatch = useDispatch()
     const [selectedOption, setSelectedOption] = useState(null)
     const [droppedFile, setDroppedFile] = useState(null)
-    const [selectedData, setSelectedData] = useState(null)
     const dataList = useSelector(getData)
+    const selectedData = useSelector(getSelectedData)
 
     useEffect(() => {
         dispatch(fetchDataList())
@@ -38,7 +40,7 @@ const HomePage = () => {
             mt4ToJSON(file)
                 .then((json) => {
                     dispatch(postDataList(dataList.concat(json))) // add data to dataList in server db
-                    setSelectedData(json) //display latest upload in preview
+                    dispatch(setSelectedData(json)) //display latest upload in preview
                 })
                 .catch(console.error)
         }
@@ -50,7 +52,7 @@ const HomePage = () => {
             mt4ToJSON(droppedFile)
                 .then((json) => {
                     dispatch(postDataList(dataList.concat(json))) //add data to dataList in server db
-                    setSelectedData(json) //display latest upload
+                    dispatch(setSelectedData(json)) //display latest upload
                 })
                 .catch(console.error)
         }
@@ -71,7 +73,7 @@ const HomePage = () => {
                         onChange={handleOptionChange}
                     />
                     <Row className='data-list-container'>
-                        <DataList setSelectedData={setSelectedData} />
+                        <DataList />
                     </Row>
                 </Col>
                 <Col md={9} className='preview-container'>

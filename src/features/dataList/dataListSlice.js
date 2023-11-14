@@ -65,6 +65,7 @@ export const deleteData = createAsyncThunk(
 
 const initialState = {
     dataList: [],
+    selectedData: null,
     isLoading: true,
     isPosting: false,
     isDeleting: false,
@@ -74,7 +75,11 @@ const initialState = {
 const dataListSlice = createSlice({
     name: 'data',
     initialState,
-    reducers: {},
+    reducers: {
+        setSelectedData: (state, action) => {
+            state.selectedData = action.payload
+        }
+    },
     extraReducers: {
         [fetchDataList.pending]: (state) => {
             state.isLoading = true
@@ -94,6 +99,7 @@ const dataListSlice = createSlice({
         [postDataList.fulfilled]: (state, action) => {
             state.isPosting = false
             state.dataList = mapDataListURL(action.payload)
+            state.selectedData = state.dataList[0]
         },
         [postDataList.rejected]: (state, action) => {
             state.isPosting = false
@@ -108,6 +114,7 @@ const dataListSlice = createSlice({
         [deleteData.fulfilled]: (state, action) => {
             state.isDeleting = false
             state.dataList = mapDataListURL(action.payload)
+            state.selectedData = state.dataList[0]
         },
         [deleteData.rejected]: (state, action) => {
             state.isDeleting = false
@@ -117,5 +124,6 @@ const dataListSlice = createSlice({
 })
 
 export const getData = (state) => state.data.dataList
-
+export const getSelectedData = (state) => state.data.selectedData
 export const dataReducer = dataListSlice.reducer
+export const { setSelectedData } = dataListSlice.actions

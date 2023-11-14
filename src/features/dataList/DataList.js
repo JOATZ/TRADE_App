@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux/es/hooks/useSelector'
+import { useDispatch, useSelector } from 'react-redux'
 import { Col } from 'reactstrap'
 
 import Error from '../../components/Error'
@@ -6,9 +6,10 @@ import FileListPill from '../../components/FileListPill'
 import Loading from '../../components/Loading'
 import Working from '../../components/Working'
 
-import { getData } from './dataListSlice'
+import { getData, setSelectedData } from './dataListSlice'
 
-const DataList = ({ setSelectedData }) => {
+const DataList = () => {
+    const dispatch = useDispatch()
     const dataList = useSelector(getData)
     // get dataList from Redux store
     const isLoading = useSelector((state) => state.data.isLoading)
@@ -50,7 +51,7 @@ const DataList = ({ setSelectedData }) => {
                     key={index}
                     data={data}
                     index={index}
-                    setSelectedData={setSelectedData}
+                    setSelectedData={() => dispatch(setSelectedData(data))}
                 />
             ))}
         </>
