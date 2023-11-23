@@ -1,10 +1,10 @@
 /*______________light mode colors______________________*/
 :root {
-  --color-background: lightgrey;
-  --color-accent:grey;
-  --color-text: black;
-  --color-navbar-dark-light: grey;
-  --color-navbar-dark-dark: green;
+  --color-background: RGB(60,106,130);
+  --color-accent:RGB(24, 42, 48);
+  --color-text: RGB(24, 42, 48);
+  --color-navbar-dark-light: RGB(60,106,130);
+  --color-navbar-dark-dark: RGB(54,71,81);
   --color-link: #61dafb;
 }
 /*______________dark mode colors______________________*/
@@ -32,7 +32,7 @@ body {
 }
 
 .site-footer {
-  background-image: linear-gradient(var(--color-navbar-dark-light), var(--color-navbar-dark-dark));
+  background-image: var(--color-navbar-dark-light);
   padding: 20px 0;
   margin-top: 2rem;
 }
@@ -47,7 +47,7 @@ body {
 }
 
 .navbar-dark {
-  background-image: linear-gradient(to right, var(--color-navbar-dark-light), var(--color-navbar-dark-dark));
+  background-image: linear-gradient(to right, var(--color-navbar-dark-light), var(--color-navbar-dark-light));
   margin-bottom: 0.0rem;
   min-height: 8rem;
   max-height: 15vh;
@@ -205,7 +205,7 @@ body {
 .preview-container {
   display: flex;
   flex-direction: column;
-  border: solid black 1px;
+  border: solid black 5px;
   border-radius: 15px;
   width: 100%;
   height: 85vh;
@@ -216,7 +216,6 @@ body {
 
 .parent-pill-row {
   margin: auto;
-  outline: 1px black solid;
   border-radius: 15px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
   padding: 1px;
@@ -224,7 +223,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 5px;
-  background-color: var(--color-accent);
+  background-color: grey;
 }
 
 .pill-col{
@@ -242,7 +241,7 @@ body {
 .sticky-header th {
   position: sticky;
   top: 0;
-  background: var(--color-accent);
+  background: grey;
   z-index: 10;
   border-radius: 5px;
 }

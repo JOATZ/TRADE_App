@@ -17,6 +17,7 @@ import {
 } from '../features/termsConditions/termsSlice'
 import UserLogin from '../features/users/UserLogin'
 import { setLoginModalOpen } from '../features/users/userSlice'
+import tradeLogo2 from '../img/tradeLogo2nbg.png'
 import tradeLogo from '../img/tradeLogoNoBg.png'
 import DarkMode from '../utils/darkMode'
 
@@ -42,7 +43,7 @@ const Header = () => {
         <>
             <Navbar dark color='primary' sticky='top' expand='md'>
                 <NavbarBrand className='mx-auto' href='/'>
-                    <img src={tradeLogo} alt='T.R.A.D.E. Logo' />
+                    <img src={tradeLogo2} alt='T.R.A.D.E. Logo' />
                     <h1 className='mt-1'>
                         Trade Record Adaptation Data Engine
                     </h1>
