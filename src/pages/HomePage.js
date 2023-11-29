@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import HomeButton from 'components/HomeButton'
 import SubHeader from 'components/SubHeader'
 import { Col, Container, Row } from 'reactstrap'
 
 const HomePage = () => {
     return (
         <Container fluid>
-            <SubHeader current='Home' />
-            The HomePage
+            <HomeButton path='/datamanger' />
         </Container>
     )
 }

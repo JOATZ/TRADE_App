@@ -31,7 +31,7 @@ function App() {
             <ResetButton />
             <Routes>
                 <Route path='/' element={<HomePage />} />
-                <Route path='datamanager' element={<DataManager />} />
+                <Route path='/datamanager' element={<DataManager />} />
             </Routes>
         </div>
     )
