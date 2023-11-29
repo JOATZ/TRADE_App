@@ -6,8 +6,10 @@ import {
     setTermsAccepted
 } from 'features/termsConditions/termsSlice'
 import { setLoginModalOpen } from 'features/users/userSlice'
+import DataManager from 'pages/DataManager'
 import HomePage from 'pages/HomePage'
 import { useDispatch, useSelector } from 'react-redux'
+import { Route, Routes } from 'react-router-dom'
 import { selectDarkMode } from 'utils/darkMode'
 
 import 'App.css'
@@ -25,7 +27,10 @@ function App() {
         <div className='App'>
             <AcceptTerms />
             <Header />
-            <HomePage />
+            <Routes>
+                <Route path='/' element={<HomePage />} />
+                <Route path='datamanager' element={<DataManager />} />
+            </Routes>
         </div>
     )
 }
