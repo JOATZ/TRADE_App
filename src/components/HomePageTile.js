@@ -1,16 +1,11 @@
-import { AwesomeButton } from 'react-awesome-button'
-import { Col, Row } from 'reactstrap' // import Row and Col from react-bootstrap
-
-import 'react-awesome-button/dist/styles.css'
+import { Button } from 'reactstrap'
 
 const HomePageTile = (props) => {
     return (
-        <AwesomeButton type='primary' style={tileStyles.button}>
-            <div style={{ height: '100%' }}>
-                <Row style={tileStyles.title}>{props.title}</Row>
-                <Row style={tileStyles.icon}>{props.icon}</Row>
-            </div>
-        </AwesomeButton>
+        <Button color='primary' style={tileStyles.button}>
+            <div style={tileStyles.title}>{props.title}</div>
+            <div style={tileStyles.icon}>{props.icon}</div>
+        </Button>
     )
 }
 
@@ -21,8 +16,7 @@ const tileStyles = {
         width: '80%'
     },
     title: {
-        border: 'solid black 1px',
-        height: '100%'
+        border: 'solid black 1px'
     },
     icon: {
         border: 'solid black 1px'
