@@ -16,9 +16,35 @@ body.dark-mode {
   --color-navbar-dark-dark: rgb(50, 50, 70);
   --color-link: #282c34;
 }
+/*_____________Home Page Layout and Buttons_______________________*/
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.home-page-buttons{
+  border: solid black 1px;
+  flex-grow: 1;
+  display: flex;
+}
+.nav-btn-row {
+  margin: 20px ;
+  height: 50%;
+}
 
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.nav-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 body {
