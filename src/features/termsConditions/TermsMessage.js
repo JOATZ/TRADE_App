@@ -1,12 +1,8 @@
-// TermsMessage.js
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Button } from 'reactstrap'
 
-import {
-    setCloseModal,
-    setTermsAccepted
-} from '../features/termsConditions/termsSlice'
+import { setCloseModal, setTermsAccepted } from './termsSlice'
 
 const TermsMessage = () => {
     const dispatch = useDispatch()

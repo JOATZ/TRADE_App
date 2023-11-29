@@ -1,4 +1,12 @@
 import { useState } from 'react'
+import {
+    isTermsAccepted,
+    setCloseModal
+} from 'features/termsConditions/termsSlice'
+import UserLogin from 'features/users/UserLogin'
+import { setLoginModalOpen } from 'features/users/userSlice'
+import tradeLogo2 from 'img/tradeLogo2nbg.png'
+import tradeLogo from 'img/tradeLogoNoBg.png'
 import { CgProfile } from 'react-icons/cg'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -10,16 +18,7 @@ import {
     Navbar,
     NavbarBrand
 } from 'reactstrap'
-
-import {
-    isTermsAccepted,
-    setCloseModal
-} from '../features/termsConditions/termsSlice'
-import UserLogin from '../features/users/UserLogin'
-import { setLoginModalOpen } from '../features/users/userSlice'
-import tradeLogo2 from '../img/tradeLogo2nbg.png'
-import tradeLogo from '../img/tradeLogoNoBg.png'
-import DarkMode from '../utils/darkMode'
+import DarkMode from 'utils/darkMode'
 
 const Header = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false)

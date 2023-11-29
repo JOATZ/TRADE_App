@@ -1,4 +1,10 @@
 import { useEffect, useState } from 'react'
+import {
+    isLoginModalOpen,
+    selectCurrentUser,
+    setCurrentUser,
+    setLoginModalOpen
+} from 'features/users/userSlice'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -11,13 +17,6 @@ import {
     ModalFooter,
     ModalHeader
 } from 'reactstrap'
-
-import {
-    isLoginModalOpen,
-    selectCurrentUser,
-    setCurrentUser,
-    setLoginModalOpen
-} from './userSlice'
 
 const UserLogin = () => {
     const loginModalOpen = useSelector(isLoginModalOpen)

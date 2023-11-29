@@ -1,14 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap'
-
-import TermsMessage from '../../components/TermsMessage'
-
+import TermsMessage from 'features/termsConditions/TermsMessage'
 import {
     isModalClosed,
     isTermsAccepted,
     setCloseModal,
     setTermsAccepted
-} from './termsSlice'
+} from 'features/termsConditions/termsSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap'
 
 const AcceptTerms = () => {
     const termsAccepted = useSelector(isTermsAccepted)

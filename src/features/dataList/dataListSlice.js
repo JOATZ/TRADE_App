@@ -1,9 +1,8 @@
+import { baseUrl } from 'app/shared/baseUrl'
+import { mapDataListURL } from 'utils/mapDataURL'
 import { v4 as uuidv4 } from 'uuid'
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-
-import { baseUrl } from '../../app/shared/baseUrl'
-import { mapDataListURL } from '../../utils/mapDataURL'
 
 export const fetchDataList = createAsyncThunk(
     'dataList/fetchDataList',

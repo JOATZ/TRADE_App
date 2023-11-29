@@ -1,12 +1,10 @@
+import Error from 'components/Error'
+import FileListPill from 'components/FileListPill'
+import Loading from 'components/Loading'
+import Working from 'components/Working'
+import { getData, setSelectedData } from 'features/dataList/dataListSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { Col } from 'reactstrap'
-
-import Error from '../../components/Error'
-import FileListPill from '../../components/FileListPill'
-import Loading from '../../components/Loading'
-import Working from '../../components/Working'
-
-import { getData, setSelectedData } from './dataListSlice'
 
 const DataList = () => {
     const dispatch = useDispatch()

@@ -1,7 +1,6 @@
+import { deleteData } from 'features/dataList/dataListSlice'
 import { useDispatch } from 'react-redux'
 import { Button, Col, Row } from 'reactstrap'
-
-import { deleteData } from '../features/dataList/dataListSlice'
 
 const FileListPill = ({ data, setSelectedData }) => {
     const dispatch = useDispatch()
