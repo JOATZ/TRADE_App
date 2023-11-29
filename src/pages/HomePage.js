@@ -1,65 +1,66 @@
 import React from 'react'
-import { AwesomeButton } from 'react-awesome-button'
+import HomePageTile from 'components/HomePageTile'
+import { BsDatabaseFillGear } from 'react-icons/bs'
 import { NavLink } from 'react-router-dom'
 import { Container, Row } from 'reactstrap'
-
-import 'react-awesome-button/dist/styles.css'
 
 const HomePage = () => {
     return (
         <Container fluid className='home-page-container'>
             <Row className='nav-btn-row'>
                 <NavLink className='nav-link col-3' to='/datamanager'>
-                    <AwesomeButton type='primary' style={buttonStyles}>
-                        Data Manager
-                    </AwesomeButton>
+                    <HomePageTile
+                        title='Data Manager'
+                        icon={<BsDatabaseFillGear />}
+                    />
                 </NavLink>
                 <NavLink className='nav-link col-3' to='/datamanager'>
-                    <AwesomeButton type='primary' style={buttonStyles}>
-                        Page 2
-                    </AwesomeButton>
+                    <HomePageTile
+                        title='Data Manager'
+                        icon={<BsDatabaseFillGear />}
+                    />
                 </NavLink>
                 <NavLink className='nav-link col-3' to='/datamanager'>
-                    <AwesomeButton type='primary' style={buttonStyles}>
-                        Page 3
-                    </AwesomeButton>
+                    <HomePageTile
+                        title='Data Manager'
+                        icon={<BsDatabaseFillGear />}
+                    />
                 </NavLink>
                 <NavLink className='nav-link col-3' to='/datamanager'>
-                    <AwesomeButton type='primary' style={buttonStyles}>
-                        Page 4
-                    </AwesomeButton>
+                    <HomePageTile
+                        title='Data Manager'
+                        icon={<BsDatabaseFillGear />}
+                    />
                 </NavLink>
             </Row>
             <Row className='nav-btn-row'>
                 <NavLink className='nav-link col-3' to='/datamanager'>
-                    <AwesomeButton type='primary' style={buttonStyles}>
-                        Page 5
-                    </AwesomeButton>
+                    <HomePageTile
+                        title='Data Manager'
+                        icon={<BsDatabaseFillGear />}
+                    />
                 </NavLink>
                 <NavLink className='nav-link col-3' to='/datamanager'>
-                    <AwesomeButton type='primary' style={buttonStyles}>
-                        Page 6
-                    </AwesomeButton>
+                    <HomePageTile
+                        title='Data Manager'
+                        icon={<BsDatabaseFillGear />}
+                    />
                 </NavLink>
                 <NavLink className='nav-link col-3' to='/datamanager'>
-                    <AwesomeButton type='primary' style={buttonStyles}>
-                        Page 7
-                    </AwesomeButton>
+                    <HomePageTile
+                        title='Data Manager'
+                        icon={<BsDatabaseFillGear />}
+                    />
                 </NavLink>
                 <NavLink className='nav-link col-3' to='/datamanager'>
-                    <AwesomeButton type='primary' style={buttonStyles}>
-                        Page 8
-                    </AwesomeButton>
+                    <HomePageTile
+                        title='Data Manager'
+                        icon={<BsDatabaseFillGear />}
+                    />
                 </NavLink>
             </Row>
         </Container>
     )
-}
-//AwesomeButtonStyleOverrides
-const buttonStyles = {
-    height: '80%',
-    fontSize: '40px',
-    width: '80%'
 }
 
 export default HomePage
