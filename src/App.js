@@ -11,6 +11,7 @@ import HomePage from 'pages/HomePage'
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import { selectDarkMode } from 'utils/darkMode'
+import ResetButton from 'utils/resetState'
 
 import 'App.css'
 
@@ -27,6 +28,7 @@ function App() {
         <div className='App'>
             <AcceptTerms />
             <Header />
+            <ResetButton />
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='datamanager' element={<DataManager />} />
