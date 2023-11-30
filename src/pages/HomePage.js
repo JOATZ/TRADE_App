@@ -1,5 +1,6 @@
 import React from 'react'
 import HomePageTile from 'components/HomePageTile'
+import Box from 'components/RotatingBox'
 import { BsDatabaseFillGear } from 'react-icons/bs'
 import { NavLink } from 'react-router-dom'
 import { Container, Row } from 'reactstrap'
@@ -18,6 +19,8 @@ const pageLinks = [
 const HomePage = () => {
     return (
         <Container fluid className='home-page-container'>
+            <Box />
+
             <Row
                 style={{
                     width: '100%',
@@ -28,7 +31,7 @@ const HomePage = () => {
                 {pageLinks.map((page, index) => (
                     <NavLink
                         key={index}
-                        className='home-page__link col-6 col-sm-3'
+                        className='home-page__link col-6 col-xl-3'
                         to={page.to}
                     >
                         <HomePageTile title={page.title} icon={page.icon} />

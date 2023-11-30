@@ -22,7 +22,7 @@ const tileStyles = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: '2vmax'
+        fontSize: '3.5vmax'
     },
     icon: {
         border: 'solid black 1px',
