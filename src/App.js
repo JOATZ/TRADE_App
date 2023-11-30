@@ -29,12 +29,10 @@ function App() {
             <AcceptTerms />
             <Header />
             <ResetButton />
-            <div className='home-page-buttons'>
-                <Routes>
-                    <Route path='/' element={<HomePage />} />
-                    <Route path='/datamanager' element={<DataManager />} />
-                </Routes>
-            </div>
+            <Routes>
+                <Route path='/' element={<HomePage />} />
+                <Route path='/datamanager' element={<DataManager />} />
+            </Routes>
         </div>
     )
 }

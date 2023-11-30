@@ -17,17 +17,18 @@ const pageLinks = [
 
 const HomePage = () => {
     return (
-        <Container
-            fluid
-            className='home-page-container'
-            style={{ overflowY: 'scroll' }}
-        >
-            <Row className='nav-btn-row'>
+        <Container fluid className='home-page-container'>
+            <Row
+                style={{
+                    width: '100%',
+                    alignItems: 'center',
+                    height: '100%'
+                }}
+            >
                 {pageLinks.map((page, index) => (
                     <NavLink
                         key={index}
-                        style={navStyles.navLink}
-                        className='nav-link col-6 col-md-3'
+                        className='home-page__link col-6 col-sm-3'
                         to={page.to}
                     >
                         <HomePageTile title={page.title} icon={page.icon} />
@@ -36,15 +37,6 @@ const HomePage = () => {
             </Row>
         </Container>
     )
-}
-
-const navStyles = {
-    navLink: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100%'
-    }
 }
 
 export default HomePage
