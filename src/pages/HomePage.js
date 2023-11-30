@@ -10,7 +10,7 @@ const HomePage = () => {
             <Row className='nav-btn-row'>
                 <NavLink
                     style={navStyles.navLink}
-                    className='nav-link col-3'
+                    className='nav-link col-6 col-md-3'
                     to='/datamanager'
                 >
                     <HomePageTile
@@ -19,7 +19,7 @@ const HomePage = () => {
                     />
                 </NavLink>
                 <NavLink
-                    className='nav-link col-3'
+                    className='nav-link col-6 col-md-3'
                     style={navStyles.navLink}
                     to='/datamanager'
                 >
@@ -29,7 +29,7 @@ const HomePage = () => {
                     />
                 </NavLink>
                 <NavLink
-                    className='nav-link col-3'
+                    className='nav-link col-6 col-md-3'
                     style={navStyles.navLink}
                     to='/datamanager'
                 >
@@ -39,7 +39,7 @@ const HomePage = () => {
                     />
                 </NavLink>
                 <NavLink
-                    className='nav-link col-3'
+                    className='nav-link col-6 col-md-3'
                     style={navStyles.navLink}
                     to='/datamanager'
                 >
@@ -51,7 +51,7 @@ const HomePage = () => {
             </Row>
             <Row className='nav-btn-row'>
                 <NavLink
-                    className='nav-link col-3'
+                    className='nav-link col-6 col-md-3'
                     style={navStyles.navLink}
                     to='/datamanager'
                 >
@@ -61,7 +61,7 @@ const HomePage = () => {
                     />
                 </NavLink>
                 <NavLink
-                    className='nav-link col-3'
+                    className='nav-link col-6 col-md-3'
                     style={navStyles.navLink}
                     to='/datamanager'
                 >
@@ -71,7 +71,7 @@ const HomePage = () => {
                     />
                 </NavLink>
                 <NavLink
-                    className='nav-link col-3'
+                    className='nav-link col-6 col-md-3'
                     style={navStyles.navLink}
                     to='/datamanager'
                 >
@@ -81,7 +81,7 @@ const HomePage = () => {
                     />
                 </NavLink>
                 <NavLink
-                    className='nav-link col-3'
+                    className='nav-link col-6 col-md-3'
                     style={navStyles.navLink}
                     to='/datamanager'
                 >

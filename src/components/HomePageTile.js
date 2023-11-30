@@ -21,14 +21,16 @@ const tileStyles = {
         height: '30%',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        fontSize: '2vmax'
     },
     icon: {
         border: 'solid black 1px',
         height: '70%',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        fontSize: '6vmax'
     }
 }
 
