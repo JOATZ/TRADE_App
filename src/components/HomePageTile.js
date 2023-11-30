@@ -2,7 +2,7 @@ import { Button } from 'reactstrap'
 
 const HomePageTile = (props) => {
     return (
-        <Button color='primary' style={tileStyles.button}>
+        <Button style={tileStyles.button}>
             <div style={tileStyles.title}>{props.title}</div>
             <div style={tileStyles.icon}>{props.icon}</div>
         </Button>
@@ -12,14 +12,23 @@ const HomePageTile = (props) => {
 const tileStyles = {
     button: {
         height: '80%',
-        fontSize: '40px',
-        width: '80%'
+        width: '80%',
+        display: 'flex',
+        flexDirection: 'column'
     },
     title: {
-        border: 'solid black 1px'
+        border: 'solid black 1px',
+        height: '30%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     icon: {
-        border: 'solid black 1px'
+        border: 'solid black 1px',
+        height: '70%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 }
 
