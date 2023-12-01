@@ -30,6 +30,7 @@ body {
 
 /*_____________Home Page Layout and Buttons_______________________*/
 .home-page-container {
+  box-sizing: border-box;
   border: solid yellow 3px;
   display: flex;
   flex-wrap: wrap;
@@ -37,19 +38,34 @@ body {
   align-items: center;
   align-content: space-around;
   height: 100%;
-  padding:30
+  padding:30px;
+  gap:4vh;
+  overflow-y: scroll;
 }
 
 .home-page-tile {
+  box-sizing: border-box;
+  aspect-ratio: 1/1;
+  height: var(--tile-size);
+  width: var(--tile-size);
   display: flex;
   flex-direction: column;
   border: dashed purple 3px;
-  flex-grow: 0;
-  flex-basis: auto;
   align-items: center;
   justify-content: center;
-  flex:0 0 20%;
-  margin: 2vh
+  flex:0 0 20vw;
+}
+
+@media (max-width: 1024px) {
+  .home-page-tile {
+    flex: 0 0 30vw; /* 2 wide on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page-tile {
+    flex: 0 0 35vw; /* 2 wide on smaller screens */
+  }
 }
 
 .site-footer {
