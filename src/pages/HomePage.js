@@ -1,6 +1,4 @@
 import React from 'react'
-import HomePageTile from 'components/HomePageTile'
-import Box from 'components/RotatingBox'
 import { BsDatabaseFillGear } from 'react-icons/bs'
 import { NavLink } from 'react-router-dom'
 import { Container, Row } from 'reactstrap'
@@ -17,25 +15,26 @@ const pageLinks = [
 ]
 
 const HomePage = () => {
+    const tileStyles = {
+        title: {
+            height: '30%',
+            width: '100%',
+            border: 'dashed red 3px'
+        },
+        icon: {
+            height: '70%',
+            width: '100%',
+            border: 'dashed red 3px'
+        }
+    }
     return (
         <Container fluid className='home-page-container'>
-            <Row
-                style={{
-                    width: '100%',
-                    alignItems: 'center',
-                    height: '100%'
-                }}
-            >
-                {pageLinks.map((page, index) => (
-                    <NavLink
-                        key={index}
-                        className='home-page__link col-6 col-xl-3'
-                        to={page.to}
-                    >
-                        <HomePageTile title={page.title} icon={page.icon} />
-                    </NavLink>
-                ))}
-            </Row>
+            {pageLinks.map((page, index) => (
+                <NavLink key={index} className='home-page-tile' to={page.to}>
+                    <div style={tileStyles.title}>{page.title}</div>
+                    <div style={tileStyles.icon}>{page.icon}</div>
+                </NavLink>
+            ))}
         </Container>
     )
 }

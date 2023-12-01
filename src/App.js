@@ -28,7 +28,7 @@ function App() {
         <div className='App'>
             <AcceptTerms />
             <Header />
-            <ResetButton />
+
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/datamanager' element={<DataManager />} />
