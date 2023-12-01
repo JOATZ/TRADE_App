@@ -19,8 +19,6 @@ const pageLinks = [
 const HomePage = () => {
     return (
         <Container fluid className='home-page-container'>
-            <Box />
-
             <Row
                 style={{
                     width: '100%',

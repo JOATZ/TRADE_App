@@ -27,18 +27,6 @@ body.dark-mode {
 body {
   background-color: var(--color-background);
 }
-/*rotating box */
-@keyframes animate
-{
-  0%
-  {
-    transform: rotateX(-30deg) rotateY(0deg)
-  }
-  100%
-  {
-    transform: rotateX(-30deg) rotateY(360deg)
-  }
-}
 
 /*_____________Home Page Layout and Buttons_______________________*/
 .home-page-container {
