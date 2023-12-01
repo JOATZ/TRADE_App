@@ -15,24 +15,12 @@ const pageLinks = [
 ]
 
 const HomePage = () => {
-    const tileStyles = {
-        title: {
-            height: '30%',
-            width: '100%',
-            border: 'dashed red 3px'
-        },
-        icon: {
-            height: '70%',
-            width: '100%',
-            border: 'dashed red 3px'
-        }
-    }
     return (
         <Container fluid className='home-page-container'>
             {pageLinks.map((page, index) => (
                 <NavLink key={index} className='home-page-tile' to={page.to}>
-                    <div style={tileStyles.title}>{page.title}</div>
-                    <div style={tileStyles.icon}>{page.icon}</div>
+                    <div className='title'>{page.title}</div>
+                    <div className='icon'>{page.icon}</div>
                 </NavLink>
             ))}
         </Container>

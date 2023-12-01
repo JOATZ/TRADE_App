@@ -28,7 +28,7 @@ body {
   background-color: var(--color-background);
 }
 
-/*_____________Home Page Layout and Buttons_______________________*/
+/*_____________HomePage.js CSS_______________________*/
 .home-page-container {
   box-sizing: border-box;
   border: solid yellow 3px;
@@ -54,6 +54,18 @@ body {
   align-items: center;
   justify-content: center;
   flex:0 0 20vw;
+}
+
+.title {
+  height: 30%;
+  width: 100%;
+  border: dashed red 3px;
+}
+
+.icon {
+  height: 70%;
+  width: 100%;
+  border: dashed red 3px;
 }
 
 @media (max-width: 1024px) {
