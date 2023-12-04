@@ -6,7 +6,6 @@ import {
 import UserLogin from 'features/users/UserLogin'
 import { setLoginModalOpen } from 'features/users/userSlice'
 import tradeLogo2 from 'img/tradeLogo2nbg.png'
-import tradeLogo from 'img/tradeLogoNoBg.png'
 import { CgProfile } from 'react-icons/cg'
 import { useDispatch, useSelector } from 'react-redux'
 import {

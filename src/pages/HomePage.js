@@ -16,10 +16,10 @@ import { Button, Container } from 'reactstrap'
 const pageLinks = [
     { title: 'Data Manager', to: '/datamanager', icon: <BsDatabaseFillGear /> },
     { title: 'Chart Data', to: '/datamanager', icon: <RiStockFill /> },
-    { title: 'Trade Log', to: '/datamanager', icon: <BsJournalRichtext /> },
+    { title: 'Trade Log', to: '/tradelog', icon: <BsJournalRichtext /> },
     {
         title: 'Trade Analysis',
-        to: '/datamanager',
+        to: '/tradeanalysis',
         icon: <FaMagnifyingGlassChart />
     },
     {
