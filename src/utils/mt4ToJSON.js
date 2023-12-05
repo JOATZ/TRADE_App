@@ -72,9 +72,9 @@ function mt4ToJSON(file) {
                     let colspan = tds[0].getAttribute('colspan')
 
                     if (colspan === '9') {
-                        let magicNum = row[1]
+                        let magic = row[1]
                         let comments = row[2]
-                        data[data.length - 1].magicNum = magicNum
+                        data[data.length - 1].magic = magic
                         data[data.length - 1].comments = comments
                         continue
                     }

@@ -10,7 +10,9 @@ const JsonToTable = ({ data }) => {
         () =>
             transactions.length > 0
                 ? Object.keys(transactions[0]).map((header) => ({
-                      Header: header,
+                      Header: header.replace(/\b\w/g, (char) =>
+                          char.toUpperCase()
+                      ),
                       accessor: header
                   }))
                 : [],
