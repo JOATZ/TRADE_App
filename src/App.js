@@ -6,6 +6,7 @@ import {
     setTermsAccepted
 } from 'features/termsConditions/termsSlice'
 import { setLoginModalOpen } from 'features/users/userSlice'
+import CompareData from 'pages/CompareData'
 import DataManager from 'pages/DataManager'
 import HomePage from 'pages/HomePage'
 import TradeAnalysis from 'pages/TradeAnalysis'
@@ -35,6 +36,7 @@ function App() {
                 <Route path='/datamanager' element={<DataManager />} />
                 <Route path='/tradelog' element={<TradeLog />} />
                 <Route path='/tradeanalysis' element={<TradeAnalysis />} />
+                <Route path='/comparedata' element={<CompareData />} />
             </Routes>
         </div>
     )

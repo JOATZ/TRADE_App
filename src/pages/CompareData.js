@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Container, Row } from 'reactstrap'
 
-const TradeAnalysis = () => {
+const CompareData = () => {
     return (
         <Container
             fluid
@@ -23,11 +23,13 @@ const TradeAnalysis = () => {
 
 const styles = {
     row: {
-        border: 'solid black 1px'
+        border: 'solid black 1px',
+        display: 'flex',
+        justifyContent: 'center'
     },
     col: {
         border: 'dashed green 1px'
     }
 }
 
-export default TradeAnalysis
+export default CompareData
