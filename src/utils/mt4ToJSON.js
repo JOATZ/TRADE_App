@@ -30,6 +30,13 @@ function mt4ToJSON(file) {
             let statementDate = null
 
             var trs = doc.getElementsByTagName('tr')
+
+            function mapCellToHeader(cell, index) {
+                let obj = {}
+                obj[headers[index]] = cell
+                return obj
+            }
+
             for (let i = 0; i < trs.length; i++) {
                 let tr = trs[i]
                 let tds = tr.getElementsByTagName('td')
@@ -72,10 +79,9 @@ function mt4ToJSON(file) {
                         continue
                     }
 
-                    let obj = {}
-                    row.forEach((cell, j) => {
-                        obj[headers[j]] = cell
-                    })
+                    let obj = row.reduce((acc, cell, j) => {
+                        return { ...acc, ...mapCellToHeader(cell, j) }
+                    }, {})
 
                     // Only record transaction data if the type column is not 'balance'
                     if (obj.type !== 'balance') {
