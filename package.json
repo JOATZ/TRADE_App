@@ -10,8 +10,10 @@
     "bootstrap": "^5.3.2",
     "bootstrap-social": "^5.1.1",
     "concurrently": "^8.2.2",
+    "dayjs": "^1.11.10",
     "firebase": "^10.4.0",
     "formik": "^2.4.5",
+    "papaparse": "^5.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
@@ -35,7 +37,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serverStart": "cd json-server && json-server -H 0.0.0.0 --watch db.json -p3001 -d2000"
+    "serverStart": "cd json-server && json-server -H 0.0.0.0 --watch db.json -p3001 -d0050"
   },
   "eslintConfig": {
     "extends": [

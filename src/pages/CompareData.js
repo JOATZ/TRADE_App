@@ -1,7 +1,8 @@
 import React from 'react'
+import DataCollapse from 'components/DataCollapse'
 import { Col, Container, Row } from 'reactstrap'
 
-const TradeAnalysis = () => {
+const CompareData = () => {
     return (
         <Container
             fluid
@@ -11,7 +12,7 @@ const TradeAnalysis = () => {
             <Row style={{ ...styles.row, height: '5%' }}>Tool Bar</Row>
             <Row style={{ ...styles.row, height: '95%' }}>
                 <Col sm={2} style={styles.col}>
-                    Col 1
+                    <DataCollapse />
                 </Col>
                 <Col sm={10} style={styles.col}>
                     Col 2
@@ -23,11 +24,13 @@ const TradeAnalysis = () => {
 
 const styles = {
     row: {
-        border: 'solid black 1px'
+        border: 'solid black 1px',
+        display: 'flex',
+        justifyContent: 'center'
     },
     col: {
         border: 'dashed green 1px'
     }
 }
 
-export default TradeAnalysis
+export default CompareData

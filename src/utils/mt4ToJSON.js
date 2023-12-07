@@ -1,3 +1,8 @@
+import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+
+dayjs.extend(customParseFormat)
+
 function mt4ToJSON(file) {
     return new Promise((resolve, reject) => {
         if (!file) {
@@ -19,83 +24,82 @@ function mt4ToJSON(file) {
             let dateTimeNow = new Date()
             let dateString = dateTimeNow.toLocaleDateString() // e.g. "12/31/2021"
             let timeString = dateTimeNow.toLocaleTimeString() // e.g. "12:59:59 PM"
+            let account = null
+            let name = null
+            let currency = null
+            let statementDate = null
 
-            var tds = doc.getElementsByTagName('td')
-            for (let td of tds) {
-                var text = td.textContent.trim()
-                if (text === 'Ticket') {
+            var trs = doc.getElementsByTagName('tr')
+
+            function mapCellToHeader(cell, index) {
+                let obj = {}
+                obj[headers[index]] = cell
+                return obj
+            }
+
+            for (let i = 0; i < trs.length; i++) {
+                let tr = trs[i]
+                let tds = tr.getElementsByTagName('td')
+
+                if (i === 0) {
+                    // First row
+                    account = tds[0].textContent.split(':')[1].trim()
+                    name = tds[1].textContent.split(':')[1].trim()
+                    currency = tds[2].textContent.split(':')[1].trim()
+                    statementDate = dayjs(
+                        tds[4].textContent.trim(),
+                        'YYYY MMMM D, HH:mm'
+                    ).toDate()
+                    continue
+                }
+
+                if (i === 1) {
+                    // Skip second row
+                    continue
+                }
+
+                if (i === 2) {
+                    // Header row
+                    headers = Array.from(tds).map((td) =>
+                        td.textContent.trim().toLowerCase()
+                    )
                     startParsing = true
-                    ticketIndex = Array.from(td.parentNode.children).indexOf(td)
-                    console.log('Setting ticketIndex to:', ticketIndex)
+                    continue
                 }
 
                 if (startParsing) {
-                    var row = []
-                    var tr = td.closest('tr')
+                    let row = Array.from(tds).map((td) => td.textContent.trim())
+                    let colspan = tds[0].getAttribute('colspan')
 
-                    if (!tr.classList.contains('parsed')) {
-                        tr.classList.add('parsed')
-                        var tdsInRow = tr.getElementsByTagName('td')
-                        for (let tdInRow of tdsInRow) {
-                            text = tdInRow.textContent.trim()
-                            row.push(text)
-                        }
-                        if (
-                            ticketIndex !== -1 &&
-                            row[ticketIndex] !== 'Ticket' &&
-                            (isNaN(row[ticketIndex]) || row[ticketIndex] === '')
-                        ) {
-                            lastTicketRowFound = true
-                        }
-                        if (!lastTicketRowFound) {
-                            if (
-                                row.length > 0 &&
-                                !(
-                                    row.some(
-                                        (item) =>
-                                            item.toLowerCase() === 'balance' ||
-                                            item.toLowerCase() === 'commission'
-                                    ) && row[0] !== 'Ticket'
-                                )
-                            ) {
-                                data.push(row)
-                            }
-                        }
+                    if (colspan === '9') {
+                        let magic = row[1]
+                        let comments = row[2]
+                        data[data.length - 1].magic = magic
+                        data[data.length - 1].comments = comments
+                        continue
+                    }
+
+                    let obj = row.reduce((acc, cell, j) => {
+                        return { ...acc, ...mapCellToHeader(cell, j) }
+                    }, {})
+
+                    // Only record transaction data if the type column is not 'balance'
+                    if (obj.type !== 'balance') {
+                        data.push(obj)
                     }
                 }
-
-                if (lastTicketRowFound) break
             }
-
-            // Convert the data to a JSON object
-            var transactions = data
-                .map((row, i) => {
-                    if (i === 0) {
-                        headers = row.map((header) =>
-                            header
-                                .toLowerCase()
-                                .replace(/ /g, '')
-                                .replace(/\//g, '')
-                        )
-                        return null
-                    } else {
-                        var obj = {}
-                        row.forEach((cell, j) => {
-                            obj[headers[j]] = cell
-                        })
-                        return obj
-                    }
-                })
-                .filter((item) => item !== null)
-
             // Create the final JSON object
             var json = {
+                account: account,
+                name: name,
+                currency: currency,
                 date: dateString,
                 time: timeString,
-                numTrades: transactions.length,
-                transactions: transactions
+                statementDate: statementDate,
+                numTrades: data.length,
+                transactions: data
             }
-
             // Resolve the promise with the JSON object
             resolve(json)
         }

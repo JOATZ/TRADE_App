@@ -18,12 +18,12 @@ const FileListPill = ({ data, setSelectedData }) => {
         <Row onClick={handleClick} className='parent-pill-row'>
             <Col xs={10} className='pill-col'>
                 <Row className='pill-row'>
-                    {data.date}
-                    {'     '}
-                    {data.time}
+                    Statement Date:{' '}
+                    {new Date(data.statementDate).toLocaleString()}
                 </Row>
                 <Row className='pill-row'>
-                    Number of Transactions: {data.numTrades}
+                    {data.name} Account: {data.account} Transactions:{' '}
+                    {data.numTrades}
                 </Row>
             </Col>
             <Col xs={2} className='pill-col'>

@@ -27,7 +27,7 @@ const pageLinks = [
         to: '/datamanager',
         icon: <BsAlarmFill />
     },
-    { title: 'Title 6', to: '/datamanager', icon: <BsArrowLeftRight /> },
+    { title: 'Compare Data', to: '/comparedata', icon: <BsArrowLeftRight /> },
     { title: 'Title 7', to: '/datamanager', icon: <BsBadgeHdFill /> },
     { title: 'Title 8', to: '/datamanager', icon: <Bs2CircleFill /> }
 ]

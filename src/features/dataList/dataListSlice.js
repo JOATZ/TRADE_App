@@ -2,7 +2,7 @@ import { baseUrl } from 'app/shared/baseUrl'
 import { mapDataListURL } from 'utils/mapDataURL'
 import { v4 as uuidv4 } from 'uuid'
 
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSelector, createSlice } from '@reduxjs/toolkit'
 
 export const fetchDataList = createAsyncThunk(
     'dataList/fetchDataList',
@@ -123,6 +123,10 @@ const dataListSlice = createSlice({
 })
 
 export const getData = (state) => state.data.dataList
+export const getTransactions = createSelector(
+    (state) => state.data.dataList,
+    (dataList) => dataList.map((data) => data.transactions).flat()
+)
 export const getSelectedData = (state) => state.data.selectedData
 export const dataReducer = dataListSlice.reducer
 export const { setSelectedData } = dataListSlice.actions
