@@ -9,7 +9,6 @@ import { Col } from 'reactstrap'
 const DataList = () => {
     const dispatch = useDispatch()
     const dataList = useSelector(getData)
-    // get dataList from Redux store
     const isLoading = useSelector((state) => state.data.isLoading)
     const errMsg = useSelector((state) => state.data.errMsg)
     const isWorking = useSelector(

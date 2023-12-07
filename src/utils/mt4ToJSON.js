@@ -91,6 +91,7 @@ function mt4ToJSON(file) {
             }
             // Create the final JSON object
             var json = {
+                dataType: 'tradeData',
                 account: account,
                 name: name,
                 currency: currency,
