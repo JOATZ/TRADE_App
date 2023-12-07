@@ -3,7 +3,12 @@ import { useSortBy, useTable } from 'react-table'
 
 const JsonToTable = ({ data }) => {
     const transactions = useMemo(
-        () => (data && data.transactions ? data.transactions : []),
+        () =>
+            data && data.transactions
+                ? data.transactions
+                : data && data.symbolData
+                ? data.symbolData
+                : [],
         [data]
     )
     const headers = useMemo(
