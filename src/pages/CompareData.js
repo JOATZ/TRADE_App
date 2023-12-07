@@ -1,5 +1,7 @@
 import React from 'react'
 import DataCollapse from 'components/DataCollapse'
+import DataList from 'features/dataList/DataList'
+import { AdvancedRealTimeChart } from 'react-ts-tradingview-widgets'
 import { Col, Container, Row } from 'reactstrap'
 
 const CompareData = () => {
@@ -11,11 +13,16 @@ const CompareData = () => {
         >
             <Row style={{ ...styles.row, height: '5%' }}>Tool Bar</Row>
             <Row style={{ ...styles.row, height: '95%' }}>
-                <Col sm={2} style={styles.col}>
-                    <DataCollapse />
+                <Col sm={2}>
+                    {' '}
+                    <DataList />
                 </Col>
-                <Col sm={10} style={styles.col}>
-                    Col 2
+                <Col sm={10}>
+                    <AdvancedRealTimeChart
+                        theme='dark'
+                        autosize
+                        width='100%'
+                    ></AdvancedRealTimeChart>
                 </Col>
             </Row>
         </Container>
@@ -29,7 +36,14 @@ const styles = {
         justifyContent: 'center'
     },
     col: {
-        border: 'dashed green 1px'
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        padding: '10px',
+        border: 'solid black 1px',
+        borderRadius: '15px',
+        height: '85vh'
     }
 }
 
