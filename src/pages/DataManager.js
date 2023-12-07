@@ -29,16 +29,14 @@ const DataManager = () => {
         ) {
             // Call the mt4ToJSON parser with the file
             mt4ToJSON(file)
-                .then((data) => {
-                    // Handle the parsed data
+                .then((json) => {
+                    dispatch(postDataList(dataList.concat(json))) // add data to dataList in server db
+                    dispatch(setSelectedData(json)) //display latest upload in preview
                 })
-                .catch((error) => {
-                    // Handle the error
-                })
+                .catch(console.error)
         }
         // Handle other cases
     }
-
     return (
         <Container fluid>
             <Row className='page-row'>
