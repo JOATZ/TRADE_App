@@ -8,8 +8,8 @@ const uploadOptions = [
 ]
 
 const fileTypeOptions = [
-    { value: 'mt4', label: 'MT4/MT5' },
-    { value: 'option2', label: 'Option 2' },
+    { value: 'mt4/5', label: 'MT4/MT5' },
+    { value: 'csv', label: '.csv' },
     { value: 'option3', label: 'Option 3' },
     { value: 'option4', label: 'Option 4' },
     { value: 'option5', label: 'Option 5' }

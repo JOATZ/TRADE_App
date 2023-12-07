@@ -11,6 +11,7 @@ import {
 } from 'features/dataList/dataListSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { Col, Container, Row } from 'reactstrap'
+import csvParser from 'utils/csvParser'
 import mt4ToJSON from 'utils/mt4ToJSON'
 
 const DataManager = () => {
@@ -25,10 +26,18 @@ const DataManager = () => {
     const handleUpload = (uploadOption, fileType, file) => {
         if (
             uploadOption.value === 'tradesTransactions' &&
-            fileType.value === 'mt4'
+            fileType.value === 'mt4/5'
         ) {
             // Call the mt4ToJSON parser with the file
             mt4ToJSON(file)
+                .then((json) => {
+                    dispatch(postDataList(dataList.concat(json))) // add data to dataList in server db
+                    dispatch(setSelectedData(json)) //display latest upload in preview
+                })
+                .catch(console.error)
+        }
+        if (uploadOption.value === 'symbolData' && fileType.value === 'csv') {
+            csvParser(file)
                 .then((json) => {
                     dispatch(postDataList(dataList.concat(json))) // add data to dataList in server db
                     dispatch(setSelectedData(json)) //display latest upload in preview
