@@ -1,20 +1,17 @@
 import { useEffect } from 'react'
 import Header from 'components/Header'
 import AcceptTerms from 'features/termsConditions/AcceptTerms'
-import {
-    setCloseModal,
-    setTermsAccepted
-} from 'features/termsConditions/termsSlice'
+import { setCloseModal } from 'features/termsConditions/termsSlice'
 import { setLoginModalOpen } from 'features/users/userSlice'
 import CompareData from 'pages/CompareData'
 import DataManager from 'pages/DataManager'
 import HomePage from 'pages/HomePage'
+import HomePageV2 from 'pages/HomePageV2'
 import TradeAnalysis from 'pages/TradeAnalysis'
 import TradeLog from 'pages/TradeLog'
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import { selectDarkMode } from 'utils/darkMode'
-import ResetButton from 'utils/resetState'
 
 import 'App.css'
 
@@ -37,6 +34,7 @@ function App() {
                 <Route path='/tradelog' element={<TradeLog />} />
                 <Route path='/tradeanalysis' element={<TradeAnalysis />} />
                 <Route path='/comparedata' element={<CompareData />} />
+                <Route path='/homepagev2' element={<HomePageV2 />} />
             </Routes>
         </div>
     )

@@ -7,11 +7,10 @@ import {
     BsDatabaseFillGear,
     BsJournalRichtext
 } from 'react-icons/bs'
-import {} from 'react-icons/bs'
 import { FaMagnifyingGlassChart } from 'react-icons/fa6'
 import { RiStockFill } from 'react-icons/ri'
 import { NavLink } from 'react-router-dom'
-import { Button, Container } from 'reactstrap'
+import { Container } from 'reactstrap'
 
 const pageLinks = [
     { title: 'Data Manager', to: '/datamanager', icon: <BsDatabaseFillGear /> },
@@ -29,7 +28,7 @@ const pageLinks = [
     },
     { title: 'Compare Data', to: '/comparedata', icon: <BsArrowLeftRight /> },
     { title: 'Title 7', to: '/datamanager', icon: <BsBadgeHdFill /> },
-    { title: 'Title 8', to: '/datamanager', icon: <Bs2CircleFill /> }
+    { title: 'Home Page v2', to: '/homepagev2', icon: <Bs2CircleFill /> }
 ]
 
 const HomePage = () => {
