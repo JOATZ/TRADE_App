@@ -39,7 +39,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serverStart": "cd json-server && node server.js"
+    "serverStart": "cd json-server && json-server -H 0.0.0.0 --watch db.json -p3001 -d0050"
   },
   "eslintConfig": {
     "extends": [
