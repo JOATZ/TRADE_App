@@ -107,8 +107,11 @@ body {
     flex: 0 0 35vw; 
   }
 }
-/*_______________________________CompareData.js__________________________________*/
-
+/*_______________________________TradeLog.js__________________________________*/
+.trade-log-container {
+  height: 100%;
+  font-size: 5vh;
+}
 /*_______________________________Navbar and Footer__________________________________*/
 .navbar-dark {
   background-color: var(--color-navbar-dark-light);
