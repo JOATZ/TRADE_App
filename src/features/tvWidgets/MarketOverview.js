@@ -19,7 +19,7 @@ function MarketOverview() {
           "blockColor": "change",
           "locale": "en",
           "symbolUrl": "",
-          "colorTheme": "light",
+          "colorTheme": "dark",
           "hasTopBar": true,
           "isDataSetEnabled": true,
           "isZoomEnabled": true,

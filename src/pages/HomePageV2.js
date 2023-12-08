@@ -7,7 +7,7 @@ const HomePageV2 = () => {
         <Container
             fluid
             className='home-page-container'
-            style={{ border: 'yellow dashed 5px', height: '100%' }}
+            style={{ height: '100%' }}
         >
             <MarketOverview />
         </Container>

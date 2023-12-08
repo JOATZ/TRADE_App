@@ -13,7 +13,6 @@ import {
     DropdownItem,
     DropdownMenu,
     DropdownToggle,
-    Nav,
     Navbar,
     NavbarBrand
 } from 'reactstrap'
@@ -55,7 +54,7 @@ const Header = () => {
                         <DropdownToggle color='transparent' dark='true'>
                             <CgProfile />
                         </DropdownToggle>
-                        <DropdownMenu>
+                        <DropdownMenu style={styles.dropdown}>
                             {!termsAccepted && (
                                 <DropdownItem onClick={handleReOpenModal}>
                                     Accept Terms
@@ -64,11 +63,12 @@ const Header = () => {
                             {termsAccepted && (
                                 <>
                                     <DropdownItem
+                                        style={styles.dropdownItem}
                                         onClick={handleUserLoginModal}
                                     >
                                         User Login
                                     </DropdownItem>
-                                    <DropdownItem>
+                                    <DropdownItem style={styles.dropdownItem}>
                                         <DarkMode />
                                     </DropdownItem>
                                 </>
@@ -80,6 +80,17 @@ const Header = () => {
             <UserLogin />
         </>
     )
+}
+
+const styles = {
+    dropdown: {
+        background: 'transparent',
+        backdropFilter: 'blur(50px)',
+        border: '2px solid var(--color-background)'
+    },
+    dropdownItem: {
+        color: 'white'
+    }
 }
 
 export default Header
