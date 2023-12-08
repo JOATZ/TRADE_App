@@ -61,7 +61,11 @@ const FileUploadModal = ({ handleUpload }) => {
 
     return (
         <>
-            <Button color='primary' onClick={toggleModal}>
+            <Button
+                color='primary'
+                onClick={toggleModal}
+                style={{ marginBottom: '10px' }}
+            >
                 Upload Data
             </Button>
             <Modal isOpen={isModalOpen} toggle={toggleModal} backdrop='static'>

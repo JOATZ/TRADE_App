@@ -17,8 +17,6 @@ function mt4ToJSON(file) {
             var parser = new DOMParser()
             var doc = parser.parseFromString(contents, 'text/html')
             var startParsing = false
-            let ticketIndex = -1
-            let lastTicketRowFound = false
             let data = []
             let headers = []
             let dateTimeNow = new Date()
@@ -42,7 +40,6 @@ function mt4ToJSON(file) {
                 let tds = tr.getElementsByTagName('td')
 
                 if (i === 0) {
-                    // First row
                     account = tds[0].textContent.split(':')[1].trim()
                     name = tds[1].textContent.split(':')[1].trim()
                     currency = tds[2].textContent.split(':')[1].trim()
@@ -54,12 +51,10 @@ function mt4ToJSON(file) {
                 }
 
                 if (i === 1) {
-                    // Skip second row
                     continue
                 }
 
                 if (i === 2) {
-                    // Header row
                     headers = Array.from(tds).map((td) =>
                         td.textContent.trim().toLowerCase()
                     )
@@ -82,14 +77,11 @@ function mt4ToJSON(file) {
                     let obj = row.reduce((acc, cell, j) => {
                         return { ...acc, ...mapCellToHeader(cell, j) }
                     }, {})
-
-                    // Only record transaction data if the type column is not 'balance'
                     if (obj.type !== 'balance') {
                         data.push(obj)
                     }
                 }
             }
-            // Create the final JSON object
             var json = {
                 dataType: 'tradeData',
                 account: account,
@@ -101,7 +93,6 @@ function mt4ToJSON(file) {
                 numTrades: data.length,
                 transactions: data
             }
-            // Resolve the promise with the JSON object
             resolve(json)
         }
         reader.onerror = reject

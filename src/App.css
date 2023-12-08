@@ -28,6 +28,10 @@ body {
   background-color: var(--color-background);
 }
 
+.modal-content, .modal-body, .modal-title {
+  background-color: transparent;
+  backdrop-filter: blur(50px);
+}
 /*_____________HomePage.js CSS_______________________*/
 .home-page-container {
   background-color: var(--color-background);
@@ -213,6 +217,8 @@ body {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+
 
 .App-header {
   background-color: var(--color-background);

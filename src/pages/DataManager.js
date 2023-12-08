@@ -28,23 +28,21 @@ const DataManager = () => {
             uploadOption.value === 'tradesTransactions' &&
             fileType.value === 'mt4/5'
         ) {
-            // Call the mt4ToJSON parser with the file
             mt4ToJSON(file)
                 .then((json) => {
-                    dispatch(postDataList(dataList.concat(json))) // add data to dataList in server db
-                    dispatch(setSelectedData(json)) //display latest upload in preview
+                    dispatch(postDataList(dataList.concat(json)))
+                    dispatch(setSelectedData(json))
                 })
                 .catch(console.error)
         }
         if (uploadOption.value === 'symbolData' && fileType.value === 'csv') {
             csvParser(file)
                 .then((json) => {
-                    dispatch(postDataList(dataList.concat(json))) // add data to dataList in server db
-                    dispatch(setSelectedData(json)) //display latest upload in preview
+                    dispatch(postDataList(dataList.concat(json)))
+                    dispatch(setSelectedData(json))
                 })
                 .catch(console.error)
         }
-        // Handle other cases
     }
     return (
         <Container fluid>
