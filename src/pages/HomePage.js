@@ -27,7 +27,7 @@ const pageLinks = [
         icon: <BsAlarmFill />
     },
     { title: 'Compare Data', to: '/comparedata', icon: <BsArrowLeftRight /> },
-    { title: 'Title 7', to: '/datamanager', icon: <BsBadgeHdFill /> },
+    { title: 'Rotating Box', to: '/box', icon: <BsBadgeHdFill /> },
     { title: 'Home Page v2', to: '/homepagev2', icon: <Bs2CircleFill /> }
 ]
 

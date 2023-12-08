@@ -7,6 +7,7 @@ import CompareData from 'pages/CompareData'
 import DataManager from 'pages/DataManager'
 import HomePage from 'pages/HomePage'
 import HomePageV2 from 'pages/HomePageV2'
+import RotatingBox from 'pages/RotatingBox'
 import TradeAnalysis from 'pages/TradeAnalysis'
 import TradeLog from 'pages/TradeLog'
 import { useDispatch, useSelector } from 'react-redux'
@@ -35,6 +36,7 @@ function App() {
                 <Route path='/tradeanalysis' element={<TradeAnalysis />} />
                 <Route path='/comparedata' element={<CompareData />} />
                 <Route path='/homepagev2' element={<HomePageV2 />} />
+                <Route path='/box' element={<RotatingBox />} />
             </Routes>
         </div>
     )

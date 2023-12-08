@@ -39,14 +39,14 @@ const Header = () => {
 
     return (
         <>
-            <Navbar dark color='primary' sticky='top' expand='md'>
-                <NavbarBrand className='mx-auto' href='/'>
-                    <img src={tradeLogo2} alt='T.R.A.D.E. Logo' />
-                    <h1 className='mt-1'>
-                        Trade Record Adaptation Data Engine
-                    </h1>
-                </NavbarBrand>
-                <Nav className='ml-auto' navbar>
+            <Navbar dark sticky='top' expand='md'>
+                <div className='mx-auto d-flex align-items-center justify-content-between'>
+                    <NavbarBrand href='/'>
+                        <img src={tradeLogo2} alt='T.R.A.D.E. Logo' />
+                        <h1 className='mt-1'>
+                            Trade Record Adaptation Data Engine
+                        </h1>
+                    </NavbarBrand>
                     <Dropdown
                         className='ms-auto'
                         isOpen={dropdownOpen}
@@ -75,7 +75,7 @@ const Header = () => {
                             )}
                         </DropdownMenu>
                     </Dropdown>
-                </Nav>
+                </div>
             </Navbar>
             <UserLogin />
         </>
