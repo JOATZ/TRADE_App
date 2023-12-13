@@ -57,10 +57,7 @@ const UserLogin = () => {
                     <ModalBody>
                         <FormGroup row>
                             <Col>
-                                <Label htmlFor='userName'>
-                                    {'  '}
-                                    Username
-                                </Label>
+                                <Label htmlFor='userName'>Username</Label>
                                 <Field
                                     name='userName'
                                     placeholder='Not currently Submitting anything.'
@@ -70,10 +67,7 @@ const UserLogin = () => {
                         </FormGroup>
                         <FormGroup row>
                             <Col>
-                                <Label htmlFor='password'>
-                                    {'  '}
-                                    Password
-                                </Label>
+                                <Label htmlFor='password'>Password</Label>
                                 <Field
                                     name='password'
                                     placeholder='Simply press LOGIN to login.'
@@ -83,7 +77,14 @@ const UserLogin = () => {
                         </FormGroup>
                     </ModalBody>
                     <ModalFooter>
-                        <Button type='submit' className='primary'>
+                        <Button
+                            type='submit'
+                            style={{
+                                backgroundColor: 'transparent',
+                                border: 'white solid 3px',
+                                boxShadow: '0px 0px 10px white'
+                            }}
+                        >
                             Login
                         </Button>
                     </ModalFooter>
