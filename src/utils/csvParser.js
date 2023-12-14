@@ -8,7 +8,7 @@ const CSVParser = (file) => {
             complete: (results) => {
                 const json = {
                     dataType: 'symbolData',
-                    name: file.name.split('.')[0], // Assuming the file name is 'symbol.csv'
+                    name: file.name.split('.')[0],
                     timeframe: '',
                     dateRange: '',
                     source: '',
