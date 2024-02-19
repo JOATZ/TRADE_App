@@ -1,8 +1,12 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-/*.csv
-/*.htm
+
+#ignore MetaTrader test statements
+**/*.htm 
+#ignore express server cors
+**/bin/serve.cert
+**/bin/server.key
 # dependencies
-/node_modules
+**/node_modules
 /.pnp
 .pnp.js
 
